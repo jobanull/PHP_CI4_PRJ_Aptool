@@ -49,8 +49,6 @@ class User extends CI_Controller
 
                 if ($this->upload->do_upload('image')) {
                     $old_image = $data['user']['image'];
-                    if ($old_image != $data['user']['image']);
-                    unlink(FCPATH . 'assets/img/profile/' . $old_image);
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
                 } else {
@@ -64,7 +62,7 @@ class User extends CI_Controller
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your Profile has been updated!</div>');
             redirect('user');
-        }
+        }   
     }
 
     public function changePassword()
