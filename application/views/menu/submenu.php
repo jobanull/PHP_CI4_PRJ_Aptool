@@ -16,7 +16,7 @@
             <?= $this->session->flashdata('message');  ?>
 
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
+            <a href="" class="btn btn-primary mb-3 tombolTambahDataSubMenu" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -38,11 +38,17 @@
                             <td><?= $sm['menu']; ?></td>
                             <td><?= $sm['url']; ?></td>
                             <td><?= $sm['icon']; ?></td>
-                            <td><?= $sm['is_active']; ?></td>
+                            <td>
+                                <?php if ( $sm['is_active'] == NULL) :?>
+                                    <div  class="btn btn-danger">Not Active</div>
+                                    <?php else:?>
+                                        <div  class="btn btn-primary">Active</div>
+                                <?php endif; ?>
+                            </td>
 
                             <td>
-                                <a href="" class="badge badge-success">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                                <a href="<?= base_url('menu/editsubmenu/') . $sm['id']; ?>" data-id="<?= $sm['id']; ?>"  class="btn btn-success tampilModalUbahSubMenu" data-toggle="modal" data-target="#newSubMenuModal">edit</a>
+                                <a href="<?= base_url('menu/deleteSubMenu/'). $sm['id']; ?>" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger">delete</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -66,12 +72,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubMenuModal">Add New Sub Menu</h5>
+                <h5 class="modal-title" id="TambahDataModalSubMenu">Add New Sub Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="<?= base_url('menu/submenu'); ?>" method="post">
+            <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" placeholder="SubMenu title">

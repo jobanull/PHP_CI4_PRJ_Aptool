@@ -8,6 +8,8 @@ class Menu extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+
+        $this->load->model('Menu_Model');
     }
 
     public function index()
@@ -31,9 +33,39 @@ class Menu extends CI_Controller
             redirect('menu');
         }
     }
+    
+    public function getEditMenu()
+    {
+        echo json_encode($this->Menu_Model->getEditMenuById($_POST['id']));
+    }
+
+    public function editMenu()
+    {     
+        $this->form_validation->set_rules('menu', 'Menu', 'required');
+
+        $data = [           
+            'menu' => $this->input->post('menu')
+        ];
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('user_menu', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Menu Edited!</div>');
+            redirect('menu');
+       
+    }
 
 
-    public function submenu()
+    public function deleteMenu($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user_menu');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Menu Deleted!</div>');
+        redirect('menu');
+    }
+
+    public function subMenu()
     {
         $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -70,11 +102,41 @@ class Menu extends CI_Controller
         }
     }
 
-    public function delete_sub_menu($id)
+    public function getEditSubMenu()
     {
-        $this->Sub_Menu_Model->delete_sub_menu($id);
+        echo json_encode($this->Menu_Model->getEditSubMenuById($_POST['id']));
+    }
+
+    public function editSubMenu()
+    {
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('menu_id', 'Menu', 'required');
+        $this->form_validation->set_rules('url', 'URL', 'required');
+        $this->form_validation->set_rules('icon', 'icon', 'required');
+       
+            $data = [
+                'title' => $this->input->post('title'),
+                'menu_id' => $this->input->post('menu_id'),
+                'url' => $this->input->post('url'),
+                'icon' => $this->input->post('icon'),
+                'is_active' => $this->input->post('is_active')
+            ];
+
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_sub_menu', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Sub Menu Edited!</div>');
+            redirect('menu/submenu');
+     
+    }
+
+    public function deleteSubMenu($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user_sub_menu');
+
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-       Data Berhasil Dihapus</div>');
+        SubMenu Deleted!</div>');
         redirect('menu/submenu');
     }
 }

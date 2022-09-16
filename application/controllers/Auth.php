@@ -57,8 +57,8 @@ class Auth extends CI_Controller
                         redirect('user');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Wrong Paswword</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Wrong Password</div>');
                     redirect('auth');
                 }
             } else {

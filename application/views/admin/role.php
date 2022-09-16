@@ -12,7 +12,7 @@
             <?= $this->session->flashdata('message');  ?>
 
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
+            <a href="" class="btn btn-primary mb-3 tombolTambahDataRole" data-toggle="modal" data-target="#TambahDataModal">Add New Role</a>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -28,19 +28,19 @@
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $r['role']; ?></td>
                             <td>
-                                <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
-                                <a href="" class="badge badge-success">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                                <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="btn btn-warning">Access</a>
+                                <a href="<?= base_url('admin/editrole/') . $r['id']; ?>" data-id="<?= $r['id']; ?>"  class="btn btn-primary tampilModalUbahRole" data-toggle="modal" data-target="#TambahDataModal">Edit </a>
+                                <a href="<?= base_url('admin/deleterole/'). $r['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin')";>Delete</a>                              
                             </td>
                         </tr>
                         <?php $i++; ?>
-                    <?php endforeach;  ?>
-                </tbody>
-            </table>
+                        <?php endforeach;  ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        
     </div>
-
-</div>
 <!-- /.container-fluid -->
 
 </div>
@@ -49,17 +49,18 @@
 <!-- Button trigger modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="newRoleModal" tabindex="-1" role="dialog" aria-labelledby="newRoleModal " aria-hidden="true">
+<!-- Add Role Modal -->
+<div class="modal fade" id="TambahDataModal" tabindex="-1" role="dialog" aria-labelledby="TambahDataModal " aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newRoleModal">Add New Role</h5>
+                <h5 class="modal-title" id="TambahDataModalRole">Add New Role</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('admin/role'); ?>" method="post">
+            <form action="<?= base_url('admin/role') ?>" method="post">
+            <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="role" name="role" placeholder="Role name">

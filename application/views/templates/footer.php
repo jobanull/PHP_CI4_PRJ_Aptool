@@ -47,6 +47,9 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+<script src="<?= base_url('assets/'); ?>js/vendor/admin_role_edit.js"></script>
+<script src="<?= base_url('assets/'); ?>js/vendor/submenu_edit.js"></script>
+<script src="<?= base_url('assets/'); ?>js/vendor/menu_edit.js"></script>
 
 <script>
     $('.custom-file-input').on('change', function() {
@@ -72,6 +75,8 @@
         });
     });
 </script>
+
+
 
 
 </body>
