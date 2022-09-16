@@ -58,22 +58,6 @@ class Admin extends CI_Controller
     {
         echo json_encode($this->Admin_Model->getEditRoleById($_POST['id']));
     }
-    
-    public function editRole()
-    {
-        $data['role'] = $this->db->get('user_role')->result_array();
-        $this->form_validation->set_rules('role', 'role', 'required');
-            $data = [
-                'role' => $this->input->post('role')
-            ];
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('user_role', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                 Role Edited</div>');
-            redirect('admin/role');
-   
-    }
 
     public function roleAccess($role_id)
     {
@@ -95,6 +79,22 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function editRole()
+    {
+        $data['role'] = $this->db->get('user_role')->result_array();
+        $this->form_validation->set_rules('role', 'role', 'required');
+            $data = [
+                'role' => $this->input->post('role')
+            ];
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_role', $data);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                 Role Edited</div>');
+            redirect('admin/role');
+   
+    }
+
     public function deleteRole($id)
     {  
       
@@ -106,7 +106,7 @@ class Admin extends CI_Controller
         redirect('admin/role');
     }
   
-
+    
     public function changeAccess()
     {
         $menu_id = $this->input->post('menuId');

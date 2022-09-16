@@ -174,14 +174,14 @@ class Auth extends CI_Controller
                     $this->db->update('user');
 
                     $this->db->delete('user_token', ['email' => $email]);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
             Your Account activation failed! Token Expired</div>');
                     redirect('auth');
                 } else {
                     $this->db->delete('user', ['email' => $email]);
                     $this->db->delete('user_token', ['email' => $email]);
 
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             ' . $email . ' has been activated!Please Login</div>');
                     redirect('auth');
                 }
