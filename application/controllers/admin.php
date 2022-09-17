@@ -10,12 +10,17 @@ class Admin extends CI_Controller
         is_logged_in();
 
         $this->load->model('Admin_Model');
+        $this->load->model('Sf_Registrasi_Pasien_Model');
     }
     
     public function index()
     {
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['total_pasien'] = $this->Sf_Registrasi_Pasien_Model->getDataTotalPasien();
+        $data['belum_bayar'] = $this->Sf_Registrasi_Pasien_Model->getDataBelumBayar();
+        $data['sudah_bayar'] = $this->Sf_Registrasi_Pasien_Model->getDataSudahBayar();
 
 
         $this->load->view('templates/header', $data);
