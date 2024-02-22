@@ -10,7 +10,7 @@
                      <div class="card shadow mb-4 ">
                          <!-- Card Header - Dropdown -->
                          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                             <h6 class="m-0 font-weight-bold text-primary">DATA REKAM MEDIS PASIEN : <?= $getDataPasienById['rm']; ?></h6>
+                             <h6 class="m-0 font-weight-bold text-primary">DATA PEMINJAMAN BARANG</h6>
 
                          </div>
                          <!-- Card Body -->
@@ -18,32 +18,13 @@
                              <table class="table table-borderless text-gray-900">
                                  <thead>
                                      <tr>
-                                         <td>Kode Registrasi</td>
+                                         <td>Nomor Tiket</td>
                                          <td><?= $getDataPasienById['rm']; ?></td>
-                                         <td>Tanggal Registrasi</td>
+                                         <td>Tanggal Peminjaman</td>
                                          <td><?= $getDataPasienById['tgl_registrasi']; ?></td>
                                      </tr>
                                  </thead>
-                                 <tbody>
-                                     <tr>
-                                         <td>Nama Pasien</td>
-                                         <td><?= $getDataPasienById['nama_pasien']; ?></td>
-                                         <td>Dokter Pengirim</td>
-                                         <td><?= $getDataPasienById['dokter_pengirim']; ?></td>
-                                     </tr>
-                                     <tr>
-                                         <td>Kategori Pasien</td>
-                                         <td><?= $getDataPasienById['kategori_pasien']; ?></td>
-                                         <td>Alamat</td>
-                                         <td><?= $getDataPasienById['alamat']; ?></td>
-                                     </tr>
-                                     <tr>
-                                         <td>Jenis Kelamin</td>
-                                         <td><?= $getDataPasienById['jenis_kelamin']; ?></td>
-                                         <td>Golongan Darah</td>
-                                         <td><?= $getDataPasienById['golongan_darah']; ?></td>
-                                     </tr>
-                                 </tbody>
+                                 
                              </table>
                          </div>
                      </div>
@@ -59,7 +40,7 @@
                      <div class="card shadow mb-4">
                          <!-- Card Header - Dropdown -->
                          <div class="card-header py-3 d-flex bg-gradient-primary flex-row align-items-center justify-content-between">
-                             <h6 class="m-0 font-weight-bold text-white">FORM INPUT PEMERIKSAAN</h6>
+                             <h6 class="m-0 font-weight-bold text-white">FORM INPUT BARANG</h6>
                          </div>
                          <!-- Card Body -->
                          <div class="card-body">
@@ -71,32 +52,37 @@
                                      <table class="table table-borderless text-gray-900">
                                          <thead>
                                              <tr>
-                                                 <td>Bidang Periksa</td>
+                                                 <td>Alat Ukur</td>
                                                  <td><input type="text" class="form-control bg-grey border-1 small" name="progress_bidang" id="id_bidang" readonly></td>
                                                  <td><a href="" class="btn btn-primary tampilModalPilih" data-toggle="modal" data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
-                                                 <td>Tarif</td>
-                                                 <td><input type="number" class="form-control bg-grey border-1 small" id="id_tarif" name="progress_tarif" readonly></td>
+                                                 <td>Alat Bantu</td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="progress_bidang" id="id_bidang" readonly></td>
+                                                 <td><a href="" class="btn btn-primary tampilModalPilih" data-toggle="modal" data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
+                                                     </a></td>
                                              </tr>
                                          </thead>
                                          <tbody>
                                              <tr>
-                                                 <td>Pemeriksaan</td>
-                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_pemeriksaan" id="id_pemeriksaan" readonly></td>
-                                                 <td>Satuan</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="progress_satuan" id="id_satuan" readonly></td>
+                                                 <td>Tanggal Peminjaman</td>
+                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_sub"  value="<?= date('d F Y'); ?>" readonly></td>
+                                                 <td>Jam</td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" id="id_nominal" name="progress_nominal"></td>
                                              </tr>
                                              <tr>
-                                                 <td>Sub Periksa</td>
-                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_sub" id="id_sub" readonly></td>
-                                                 <td>Nilai Nominal</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" id="id_nominal" name="progress_nominal" readonly></td>
+                                                 <td>Tanggal Pengembalian</td>
+                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_sub" ></td>
+                                                 <td>Jam</td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" id="id_nominal" name="progress_nominal"></td>
                                              </tr>
                                              <tr>
-                                                 <td>Hasil pemeriksaan</td>
+                                                 <td>Nama Peminjam</td>
                                                  <td colspan="2"><input type="text" id="inputku" name="progress_hasil" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
-                                                 <td><button class="btn btn-primary">Tambahkan</button></td>
-                                                 <td></td>
+                                                 <td>Jumlah</td>
+                                                 <td ><input type="text" id="inputku" name="progress_hasil" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
+                                             </tr>
+                                             <tr>
+                                             <td><button class="btn btn-primary">Tambahkan</button></td>
                                              </tr>
                                          </tbody>
                                      </table>
@@ -161,14 +147,14 @@
              <!-- DataTales Example -->
              <div class="card shadow mb-4">
                  <div class="card-header py-3 d-flex bg-gradient-primary flex-row align-items-center justify-content-between">
-                     <h6 class="m-0 font-weight-bold text-white">DETAIL HASIL PEMERIKSAAN</h6>
+                     <h6 class="m-0 font-weight-bold text-white">DETAIL BARANG</h6>
                  </div>
                  <div class="card-body ">
                      <div class="row mb-2 ml-1">
                          <?php if ($getDataPasienById['bayar'] == 'a') : ?>
                              <form action="<?= base_url(); ?>surface/bayar/<?= $getDataPasienById['id']; ?>" method="POST">
                                  <input type="hidden" name="id" value="<?= $getDataPasienById['id']; ?>" id="">
-                                 <button for="bayar" class="btn btn-danger mr-2" name="bayar" value="b">BAYAR<i class="fas fa-credit-card"></i></button>
+                                 <button for="bayar" class="btn btn-danger mr-2" name="bayar" value="b">SELESAI</button>
                              </form>
                          <?php else : ?>
 
@@ -186,23 +172,25 @@
                              <thead>
                                  <tr>
                                      <th>No</th>
-                                     <th>Bidang Periksa</th>
-                                     <th>Pemeriksaan</th>
-                                     <th>Sub Periksa</th>
-                                     <th>Hasil Pemeriksaan</th>
-                                     <th>Nilai Nominal</th>
-                                     <th>Tarif</th>
+                                     <th>Nama Peminjam</th>
+                                     <th>Jenis Barang</th>
+                                     <th>Jumlah</th>
+                                     <th>Tanggal Peminjaman</th>
+                                     <th>Jam</th>
+                                     <th>Tanggal Pengembalian</th>                                     
+                                     <th>Jam</th>
                                  </tr>
                              </thead>
                              <tfoot>
                                  <tr>
-                                     <th>No</th>
-                                     <th>Bidang Periksa</th>
-                                     <th>Pemeriksaan</th>
-                                     <th>Sub Periksa</th>
-                                     <th>Hasil Pemeriksaan</th>
-                                     <th>Nilai Nominal</th>
-                                     <th>Tarif</th>
+                                 <th>No</th>
+                                     <th>Nama Peminjam</th>
+                                     <th>Jenis Barang</th>
+                                     <th>Jumlah</th>
+                                     <th>Tanggal Peminjaman</th>
+                                     <th>Jam</th>
+                                     <th>Tanggal Pengembalian</th>                                     
+                                     <th>Jam</th>
                                  </tr>
                              </tfoot>
                              <tbody>
@@ -212,6 +200,7 @@
                                          <td><?= $i++; ?></td>
                                          <td><?= $row['progress_bidang']; ?></td>
                                          <td><?= $row['progress_pemeriksaan']; ?></td>
+                                         <td><?= $row['progress_sub']; ?></td>
                                          <td><?= $row['progress_sub']; ?></td>
                                          <td><?= $row['progress_hasil']; ?></td>
                                          <td><?= $row['progress_nominal']; ?></td>

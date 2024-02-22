@@ -17,17 +17,15 @@ class Surface extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->model('Sf_Registrasi_Pasien_Model');
-        $this->load->model('Sf_Dokter_Model');
-        $this->load->model('Sf_Perawat_Model');
         $this->load->model('Sf_Progress_Model');
 
 
-        $this->load->model('Md_Obat_Model');
-        $this->load->model('Md_Pengirim_Model');
-        $this->load->model('Md_Kategori_Model');
-        $this->load->model('Md_Satuan_Model');
-        $this->load->model('Md_Bidang_Model');
-        $this->load->model('Md_Petugas_Model');
+        // $this->load->model('Md_Obat_Model');
+        // $this->load->model('Md_Pengirim_Model');
+        // $this->load->model('Md_Kategori_Model');
+        // $this->load->model('Md_Satuan_Model');
+        // $this->load->model('Md_Bidang_Model');
+        // $this->load->model('Md_Petugas_Model');
         $this->load->model('Md_Data_Pemeriksaan_Model');
 
     }
@@ -41,9 +39,6 @@ class Surface extends CI_Controller
 
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        // $data['total_pasien'] = $this->Sf_Registrasi_Pasien_Model->getDataTotalPasien();
-        // $data['belum_bayar'] = $this->Sf_Registrasi_Pasien_Model->getDataBelumBayar();
-        // $data['sudah_bayar'] = $this->Sf_Registrasi_Pasien_Model->getDataSudahBayar();
 
 
         $this->load->view('templates/header', $data);
@@ -61,27 +56,9 @@ class Surface extends CI_Controller
     {
         $data['title'] = 'Registrasi Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['kategori'] = $this->Md_Kategori_Model->getDataKategoriResult();
-        $data['dokter'] = $this->Md_Pengirim_Model->getDataPengirimResult();
-        $data['petugas'] = $this->Md_Petugas_Model->getDataPetugasRow();
-
 
         $this->form_validation->set_rules('rm', 'RM', 'required');
         $this->form_validation->set_rules('tgl_registrasi', 'Tgl_Registrasi');
-        $this->form_validation->set_rules('nama_pasien', 'Nama_Pasien', 'required');
-        $this->form_validation->set_rules('kategori_pasien', 'Kategori_Pasien');
-        $this->form_validation->set_rules('dokter_pengirim', 'Dokter_Pengirim');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis_Kelamin');
-        $this->form_validation->set_rules('golongan_darah', 'Golongan_Darah');
-        $this->form_validation->set_rules('tgl_lahir', 'Tgl_Lahir');
-        $this->form_validation->set_rules('status', 'Status');
-        $this->form_validation->set_rules('nomor_hp', 'Nomor_HP');
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan');
-        $this->form_validation->set_rules('no_kk', 'no_kk');
-        $this->form_validation->set_rules('nama_ayah', 'Nama_Ayah');
-        $this->form_validation->set_rules('nama_ibu', 'Nama_Ibu');
-        $this->form_validation->set_rules('alamat', 'Alamat');
-        $this->form_validation->set_rules('petugas', 'Petugas');
         $this->form_validation->set_rules('sts', 'Sts');
         $this->form_validation->set_rules('bayar', 'Bayar');
 
@@ -95,20 +72,6 @@ class Surface extends CI_Controller
             $data = [
                 'rm' => htmlentities($this->input->post('rm')),
                 'tgl_registrasi' => htmlentities($this->input->post('tgl_registrasi')),
-                'nama_pasien' => htmlentities($this->input->post('nama_pasien')),
-                'kategori_pasien' => htmlentities($this->input->post('kategori_pasien')),
-                'dokter_pengirim' => htmlentities($this->input->post('dokter_pengirim')),
-                'jenis_kelamin' => htmlentities($this->input->post('jenis_kelamin')),
-                'golongan_darah' => htmlentities($this->input->post('golongan_darah')),
-                'tgl_lahir' => htmlentities($this->input->post('tgl_lahir')),
-                'status' => htmlentities($this->input->post('status')),
-                'nomor_hp' => htmlentities($this->input->post('nomor_hp')),
-                'pekerjaan' => htmlentities($this->input->post('pekerjaan')),
-                'no_kk' => htmlentities($this->input->post('no_kk')),
-                'nama_ayah' => htmlentities($this->input->post('nama_ayah')),
-                'nama_ibu' => htmlentities($this->input->post('nama_ibu')),
-                'alamat' => htmlentities($this->input->post('alamat')),
-                'petugas' => htmlentities($this->input->post('petugas')),
                 'sts' => htmlentities($this->input->post('sts')),
                 'bayar' => htmlentities($this->input->post('bayar'))
 
@@ -127,29 +90,14 @@ class Surface extends CI_Controller
         $data['title'] = 'Ubah Data Registrasi Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pasien'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-        $data['kategori'] = $this->Md_Kategori_Model->getDataKategoriResult();
-        $data['dokter'] = $this->Md_Pengirim_Model->getDataPengirimResult();
-        $data['petugas'] = $this->Md_Petugas_Model->getDataPetugasRow();
+        // $data['kategori'] = $this->Md_Kategori_Model->getDataKategoriResult();
+        // $data['dokter'] = $this->Md_Pengirim_Model->getDataPengirimResult();
+        // $data['petugas'] = $this->Md_Petugas_Model->getDataPetugasRow();
 
 
         $this->form_validation->set_rules('id', 'ID');
         $this->form_validation->set_rules('rm', 'RM');
         $this->form_validation->set_rules('tgl_registrasi', 'Tgl_Registrasi');
-        $this->form_validation->set_rules('nama_pasien', 'Nama_Pasien', 'required');
-        $this->form_validation->set_rules('kategori_pasien', 'Kategori_Pasien');
-        $this->form_validation->set_rules('dokter_pengirim', 'Dokter_Pengirim');
-        $this->form_validation->set_rules('jenis_kelamin', 'Jenis_Kelamin');
-        $this->form_validation->set_rules('golongan_darah', 'Golongan_Darah');
-        $this->form_validation->set_rules('tgl_lahir', 'Tgl_Lahir');
-        $this->form_validation->set_rules('status', 'Status');
-        $this->form_validation->set_rules('nomor_hp', 'Nomor_HP');
-        $this->form_validation->set_rules('pekerjaan', 'Pekerjaan');
-        $this->form_validation->set_rules('no_kk', 'no_kk');
-        $this->form_validation->set_rules('nama_ayah', 'Nama_Ayah');
-        $this->form_validation->set_rules('nama_ibu', 'Nama_Ibu');
-        $this->form_validation->set_rules('alamat', 'Alamat');
-        $this->form_validation->set_rules('petugas', 'Petugas');
-
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -161,20 +109,6 @@ class Surface extends CI_Controller
                 'id' => htmlentities($this->input->post('id')),
                 'rm' => htmlentities($this->input->post('rm')),
                 'tgl_registrasi' => htmlentities($this->input->post('tgl_registrasi')),
-                'nama_pasien' => htmlentities($this->input->post('nama_pasien')),
-                'kategori_pasien' => htmlentities($this->input->post('kategori_pasien')),
-                'dokter_pengirim' => htmlentities($this->input->post('dokter_pengirim')),
-                'jenis_kelamin' => htmlentities($this->input->post('jenis_kelamin')),
-                'golongan_darah' => htmlentities($this->input->post('golongan_darah')),
-                'tgl_lahir' => htmlentities($this->input->post('tgl_lahir')),
-                'status' => htmlentities($this->input->post('status')),
-                'nomor_hp' => htmlentities($this->input->post('nomor_hp')),
-                'pekerjaan' => htmlentities($this->input->post('pekerjaan')),
-                'no_kk' => htmlentities($this->input->post('no_kk')),
-                'nama_ayah' => htmlentities($this->input->post('nama_ayah')),
-                'nama_ibu' => htmlentities($this->input->post('nama_ibu')),
-                'alamat' => htmlentities($this->input->post('alamat')),
-                'petugas' => htmlentities($this->input->post('petugas'))
 
             ];
             $this->db->where('id', $this->input->post('id'));
@@ -343,170 +277,7 @@ class Surface extends CI_Controller
         $mpdf->Output('label.pdf', \Mpdf\Output\Destination::INLINE);
     }
 
-    // -----------------------------------------------------------------------------------------------------    
-
-    public function Neo_station()
-    {
-        $data['title'] = 'Neo Station';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['hasil_registrasi'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienResult();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('surface/neo-station', $data);
-        $this->load->view('templates/footer');
-    }
-
-    //------------------------------------------------------------------------------------------------------
-
-    public function tambah_data_perawat($id)
-    {
-        $data['title'] = 'Neo Station';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['tambah'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-
-
-        $this->form_validation->set_rules('id', 'ID', 'required');
-        $this->form_validation->set_rules('tensi', 'Tensi');
-        $this->form_validation->set_rules('bb', 'Bb');
-        $this->form_validation->set_rules('tb', 'Tb');
-        $this->form_validation->set_rules('suhu_tubuh', 'Suhu_tubuh');
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('surface/tambah/tambah_data_perawat', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $data = [
-                'id' => htmlentities($this->input->post('id')),
-                'tensi' => htmlentities($this->input->post('tensi')),
-                'bb' => htmlentities($this->input->post('bb')),
-                'tb' => htmlentities($this->input->post('tb')),
-                'suhu_tubuh' => htmlentities($this->input->post('suhu_tubuh'))
-            ];
-
-
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('sf_registrasi_pasien', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Data Berhasil Ditambahkan</div>');
-            redirect('surface/neo_station');
-        }
-    }
-
-    //------------------------------------------------------------------------------------------------------
-
-    public function preview_perawat($id)
-    {
-        $data['title'] = 'Neo Station';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('surface/preview/preview_perawat', $data);
-        $this->load->view('templates/footer');
-    }
-
-    //------------------------------------------------------------------------------------------------------
-
-    public function hapus_data_registrasi_neo_station($id)
-    {
-        $this->Sf_Registrasi_Pasien_Model->hapus_data_registrasi($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-       Data Berhasil Dihapus</div>');
-        redirect('surface/neo_station');
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-
-    public function Dokter()
-    {
-        $data['title'] = 'Dokter';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['hasil_registrasi'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienResult();
-
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('surface/dokter', $data);
-        $this->load->view('templates/footer');
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-
-    public function tambah_data_dokter($id)
-    {
-        $data['title'] = 'Dokter';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['tambah'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-
-        $this->form_validation->set_rules('id', 'ID', 'required');
-        $this->form_validation->set_rules('keluhan', 'Keluhan');
-        $this->form_validation->set_rules('jenis_penyakit', 'Jenis_Penyakit');
-        $this->form_validation->set_rules('obat', 'Obat');
-        $this->form_validation->set_rules('penanganan', 'Penanganan');
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('surface/tambah/tambah_data_dokter', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $data = [
-                'id' => htmlentities($this->input->post('id')),
-                'keluhan' => htmlentities($this->input->post('keluhan')),
-                'jenis_penyakit' => htmlentities($this->input->post('jenis_penyakit')),
-                'obat' => htmlentities($this->input->post('obat')),
-                'penanganan' => htmlentities($this->input->post('penanganan')),
-            ];
-
-
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('sf_registrasi_pasien', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Data Berhasil Ditambahkan</div>');
-            redirect('surface/dokter');
-        }
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-
-
-
-    public function preview_dokter($id)
-    {
-        $data['title'] = 'Dokter';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('surface/preview/preview_dokter', $data);
-        $this->load->view('templates/footer');
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-
-    public function hapus_data_registrasi_dokter($id)
-    {
-        $this->Sf_Registrasi_Pasien_Model->hapus_data_registrasi($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-       Data Berhasil Dihapus</div>');
-        redirect('surface/dokter');
-    }
-
-    //-----------------------------------------------------------------------------------------------------
-
+    
 
     public function Myprofile()
     {

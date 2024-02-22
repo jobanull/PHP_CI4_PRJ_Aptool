@@ -9,14 +9,14 @@ $(function () {
 		$(".modal-footer button[type=submit]").html("Ubah Data");
 	$(".modal-content form").attr(
 			"action",
-			"http://localhost/apkes/menu/editMenu"           
+			"http://localhost/aptool/menu/editMenu"           
 		);
 
 		const id = $(this).data("id");
 		console.log(id);
 
 		$.ajax({
-			url: "http://localhost/apkes/menu/getEditMenu",
+			url: "http://localhost/aptool/menu/getEditMenu",
 			data: { id: id },
 			method: "post",
 			dataType: "json",

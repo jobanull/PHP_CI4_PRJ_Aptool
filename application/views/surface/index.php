@@ -29,58 +29,16 @@
         </div>
 
 
-    </div>
-    <!-- End Row -->
-
-    <!-- Start Row -->
-
-    <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <a href="<?= base_url('surface/neo_station'); ?>" style="text-decoration: none;">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="font-weight-bold text-success text-uppercase mb-1">Neo Station</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-fw fa-user-nurse fa-3x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <a href="<?= base_url('surface/dokter'); ?>" style="text-decoration: none;">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="font-weight-bold text-success text-uppercase mb-1">Dokter</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-fw fa-user-md fa-3x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <a href="<?= base_url('surface/laboratorium'); ?>" style="text-decoration: none;">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="font-weight-bold text-primary text-uppercase mb-1">Laboratorium</div>
+                                <div class="font-weight-bold text-primary text-uppercase mb-1">Ticket</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-fw fa-stethoscope fa-3x text-gray-300"></i>
+                                <i class="fa fa-fw fa-folder fa-3x text-gray-300"></i>
                             </div>
                         </div>
                     </a>
