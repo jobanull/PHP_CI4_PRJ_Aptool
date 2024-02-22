@@ -2,12 +2,12 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Md_Data_Pemeriksaan_model extends CI_Model
+class Md_Alat_Ukur_model extends CI_Model
 {
-    function getDataPemeriksaanResult()
+    function getDataAlatUkurResult()
     {
         $this->db->select('*');
-        $this->db->from('md_data_pemeriksaan');
+        $this->db->from('md_alat_ukur');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get();
         return $query->result_array();
@@ -16,11 +16,11 @@ class Md_Data_Pemeriksaan_model extends CI_Model
     function hapus_md_data($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('md_data_pemeriksaan');
+        $this->db->delete('md_alat_ukur');
     }
 
-    function getDataPemeriksaanById($id)
+    function getDataAlatUkurById($id)
     {
-        return $this->db->get_where('md_data_pemeriksaan', ['id' => $id])->row_array();
+        return $this->db->get_where('md_alat_ukur', ['id' => $id])->row_array();
     }
 }

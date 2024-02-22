@@ -10,7 +10,7 @@
 
            <div class="card shadow mb-4">
                <div class="col-sm-12 mb-10">
-                   <form action="<?= base_url(); ?>/masterdata/ubah_data_pemeriksaan/<?= $pemeriksaan['id']; ?>" method="post">
+                   <form action="<?= base_url(); ?>/masterdata/ubah_alat_ukur/<?= $pemeriksaan['id']; ?>" method="post">
 
                        <div class="row">
                            <input type="hidden" name="id" id="id" value="<?= $pemeriksaan['id']; ?>">

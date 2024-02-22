@@ -1,22 +1,22 @@
 $(function () {
-	$(".tombolTambahDataPemeriksaan").on("click", function () {
-		$("#TambahDataModalLabelPemeriksaan").html("Tambah Data Pemeriksaan");
+	$(".tombolTambahDataAlatUkur").on("click", function () {
+		$("#TambahDataModalLabelAlatUkur").html("Tambah Data Alat Ukur");
 		$(".modal-footer button[type=submit]").html("Tambah Data");
 	});
 
-	$(".tampilModalUbahPemeriksaan").on("click", function () {
-		$("#TambahDataModalLabelPemeriksaan").html("Ubah Data Pemeriksaan");
+	$(".tampilModalUbahAlaUkur").on("click", function () {
+		$("#TambahDataModalLabelAlatUkur").html("Ubah Data Alat Uku");
 		$(".modal-footer button[type=submit]").html("Ubah Data");
 		$(".modal-content form").attr(
 			"action",
-			"http://localhost/aptool/masterdata/ubah_data_pemeriksaan"
+			"http://localhost/aptool/masterdata/ubah_alat_ukur"
 		);
 
 		const id = $(this).data("id");
 		console.log(id);
 
 		$.ajax({
-			url: "http://localhost/aptool/masterdata/getUbahDataPemeriksaan",
+			url: "http://localhost/aptool/masterdata/getUbahAlatUkur",
 			data: { id: id },
 			method: "post",
 			dataType: "json",
