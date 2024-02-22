@@ -53,33 +53,34 @@
                                          <thead>
                                              <tr>
                                                  <td>Alat Ukur</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="progress_bidang" id="id_bidang" readonly></td>
-                                                 <td><a href="" class="btn btn-primary tampilModalPilih" data-toggle="modal" data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="jenis_barang" id="id_bidang" readonly></td>
+                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
                                                  <td>Alat Bantu</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="progress_bidang" id="id_bidang" readonly></td>
-                                                 <td><a href="" class="btn btn-primary tampilModalPilih" data-toggle="modal" data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="jenis_barang" id="id_bidang_bantu" readonly></td>
+                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
+                                                
                                              </tr>
                                          </thead>
                                          <tbody>
                                              <tr>
                                                  <td>Tanggal Peminjaman</td>
-                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_sub"  value="<?= date('d F Y'); ?>" readonly></td>
+                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="tanggal_peminjaman"  value="<?= date('d F Y'); ?>" readonly></td>
                                                  <td>Jam</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" id="id_nominal" name="progress_nominal"></td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small"  name="jam_peminjaman"></td>
                                              </tr>
                                              <tr>
                                                  <td>Tanggal Pengembalian</td>
-                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="progress_sub" ></td>
+                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="tanggal_pengembalian" ></td>
                                                  <td>Jam</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" id="id_nominal" name="progress_nominal"></td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small"  name="jam_pengembalian"></td>
                                              </tr>
                                              <tr>
                                                  <td>Nama Peminjam</td>
-                                                 <td colspan="2"><input type="text" id="inputku" name="progress_hasil" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
+                                                 <td colspan="2"><input type="text" id="inputku" name="nama_peminjam" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
                                                  <td>Jumlah</td>
-                                                 <td ><input type="text" id="inputku" name="progress_hasil" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
+                                                 <td ><input type="text" id="inputku" name="jumlah" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control bg-grey border-1 small" autocomplete="off"></td>
                                              </tr>
                                              <tr>
                                              <td><button class="btn btn-primary">Tambahkan</button></td>
@@ -196,15 +197,15 @@
                              <tbody>
                                  <?php $i = 1; ?>
                                  <?php foreach ($getDataProgressResultWithID as $row) : ?>
-                                     <tr>
+                                    <tr>
                                          <td><?= $i++; ?></td>
-                                         <td><?= $row['progress_bidang']; ?></td>
-                                         <td><?= $row['progress_pemeriksaan']; ?></td>
-                                         <td><?= $row['progress_sub']; ?></td>
-                                         <td><?= $row['progress_sub']; ?></td>
-                                         <td><?= $row['progress_hasil']; ?></td>
-                                         <td><?= $row['progress_nominal']; ?></td>
-                                         <td><?= $row['progress_tarif']; ?></td>
+                                         <td><?= $row['nama_peminjam']; ?></td>
+                                         <td><?= $row['jenis_barang']; ?></td>
+                                         <td><?= $row['jumlah']; ?></td>
+                                         <td><?= $row['tanggal_peminjaman']; ?></td>
+                                         <td><?= $row['jam_peminjaman']; ?></td>
+                                         <td><?= $row['tanggal_pengembalian']; ?></td>
+                                         <td><?= $row['jam_pengembalian']; ?></td>
                                      </tr>
                                  <?php endforeach; ?>
                              </tbody>

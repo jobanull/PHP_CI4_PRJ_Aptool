@@ -185,13 +185,13 @@ class Surface extends CI_Controller
 
 
         $this->form_validation->set_rules('id_registrasi', 'Registrasi', 'required');
-        $this->form_validation->set_rules('progress_bidang', 'Bidang');
-        $this->form_validation->set_rules('progress_nominal', 'Nominal');
-        $this->form_validation->set_rules('progress_pemeriksaan', 'Pemeriksaan');
-        $this->form_validation->set_rules('progress_satuan', 'Satuan');
-        $this->form_validation->set_rules('progress_sub', 'Sub');
-        $this->form_validation->set_rules('progress_tarif', 'Tarif');
-        $this->form_validation->set_rules('progress_hasil', 'Hasil');
+        $this->form_validation->set_rules('nama_peminjam', 'Nama_Peminjam');
+        $this->form_validation->set_rules('jenis_barang', 'Jenis_Barang');
+        $this->form_validation->set_rules('jumlah', 'Jumlah');
+        $this->form_validation->set_rules('tanggal_peminjaman', 'Tanggal_Peminjaman');
+        $this->form_validation->set_rules('jam_peminjaman', 'Jam_Peminjaman');
+        $this->form_validation->set_rules('tanggal_pengembalian', 'Tanggal_Pengembalian');
+        $this->form_validation->set_rules('jam_pengembalian', 'Jam_Pengembalian');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -202,13 +202,13 @@ class Surface extends CI_Controller
         } else {
             $data = [
                 'id_registrasi' => htmlentities($this->input->post('id_registrasi')),
-                'progress_bidang' => htmlentities($this->input->post('progress_bidang')),
-                'progress_nominal' => htmlentities($this->input->post('progress_nominal')),
-                'progress_pemeriksaan' => htmlentities($this->input->post('progress_pemeriksaan')),
-                'progress_satuan' => htmlentities($this->input->post('progress_satuan')),
-                'progress_sub' => htmlentities($this->input->post('progress_sub')),
-                'progress_tarif' => htmlentities($this->input->post('progress_tarif')),
-                'progress_hasil' => htmlentities($this->input->post('progress_hasil'))
+                'nama_peminjam' => htmlentities($this->input->post('nama_peminjam')),
+                'jenis_barang' => htmlentities($this->input->post('jenis_barang')),
+                'jumlah' => htmlentities($this->input->post('jumlah')),
+                'tanggal_peminjaman' => htmlentities($this->input->post('tanggal_peminjaman')),
+                'jam_peminjaman' => htmlentities($this->input->post('jam_peminjaman')),
+                'tanggal_pengembalian' => htmlentities($this->input->post('tanggal_pengembalian')),
+                'jam_pengembalian' => htmlentities($this->input->post('jam_pengembalian'))
             ];
             $this->db->insert('sf_progress_pemeriksaan', $data);
 

@@ -133,6 +133,25 @@
     }
 </script>
 
+<script>
+
+// Temukan elemen input untuk alat ukur dan alat bantu
+var alatUkurInput = document.getElementById('id_bidang');
+var alatBantuInput = document.getElementById('id_bidang_bantu');
+
+// Fungsi untuk menghapus atribut "name" dari input alat bantu
+function hapusAtributName() {
+    alatBantuInput.removeAttribute('name');
+}
+
+// Cek apakah input alat ukur memiliki nilai dari modal pilih
+if (alatUkurInput.value !== '') {
+    // Jika ya, panggil fungsi untuk menghapus atribut "name" dari input alat bantu
+    hapusAtributName();
+}
+
+</script>
+
 
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
