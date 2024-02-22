@@ -109,13 +109,13 @@
                                                      </tr>
                                                  </thead>
                                                  <tbody>
-                                                     <?php foreach ($getDataPemeriksaanResult as $s) : ?>
+                                                     <?php foreach ($getDataAlatUkurResult as $s) : ?>
                                                          <tr>
-                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-bidang="<?= $s['bidang']; ?>" data-pemeriksaan='<?= $s['data_pemeriksaan']; ?>' data-sub='<?= $s['sub_pemeriksaan']; ?>' data-nominal='<?= $s['nominal']; ?>' data-satuan='<?= $s['satuan']; ?>' data-tarif='<?= $s['tarif']; ?>'> Pilih </b utton></td>
-                                                             <td><?= $s['bidang']; ?></td>
-                                                             <td><?= $s['data_pemeriksaan']; ?></td>
-                                                             <td><?= $s['sub_pemeriksaan']; ?></td>
-                                                             <td><?= $s['nominal']; ?><?= $s['satuan']; ?></td>
+                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-bidang="<?= $s['nama_alat']; ?>" data-pemeriksaan='<?= $s['data_pemeriksaan']; ?>' data-sub='<?= $s['sub_pemeriksaan']; ?>' data-nominal='<?= $s['nominal']; ?>' data-satuan='<?= $s['satuan']; ?>' data-tarif='<?= $s['tarif']; ?>'> Pilih </b utton></td>
+                                                             <td><?= $s['merk']; ?></td>
+                                                             <td><?= $s['kode']; ?></td>
+                                                             <td><?= $s['spesifikasi']; ?></td>
+                                                             <td><?= $s['status']; ?></td>
                                                          </tr>
                                                      <?php endforeach; ?>
                                                  </tbody>

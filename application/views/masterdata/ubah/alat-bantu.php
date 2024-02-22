@@ -5,12 +5,12 @@
            <!-- DataTales Example -->
            <!-- Card Header - Dropdown -->
            <div class="card-header py-3 d-flex bg-gradient-primary flex-row align-items-center justify-content-between">
-               <h6 class="m-0 font-weight-bold text-white"> UBAH DATA <b>ALAT UKUR</b> </h6>
+               <h6 class="m-0 font-weight-bold text-white"> UBAH DATA <b>ALAT BANTU</b> </h6>
            </div>
 
            <div class="card shadow mb-4">
                <div class="col-sm-12 mb-10">
-                   <form action="<?= base_url(); ?>/masterdata/ubah_alat_ukur/<?= $pemeriksaan['id']; ?>" method="post">
+                   <form action="<?= base_url(); ?>/masterdata/ubah_alat_bantu/<?= $pemeriksaan['id']; ?>" method="post">
 
                        <div class="row">
                            <input type="hidden" name="id" id="id" value="<?= $pemeriksaan['id']; ?>">
