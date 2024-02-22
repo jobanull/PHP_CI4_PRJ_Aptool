@@ -43,12 +43,12 @@
                                <?php foreach ($dataPemeriksaan as $row) :   ?>
                                    <tr>
                                        <td><?= $no++; ?></td>
-                                       <td><?= $row['bidang']; ?></td>
-                                       <td><?= $row['data_pemeriksaan']; ?></td>
-                                       <td><?= $row['sub_pemeriksaan']; ?></td>
-                                       <td><?= $row['tarif']; ?></td>
-                                       <td><?= $row['tarif']; ?></td>
-                                       <td><?= $row['nominal'] . '&nbsp;' . $row['satuan']; ?> </td>
+                                       <td><?= $row['nama_alat']; ?></td>
+                                       <td><?= $row['merk']; ?></td>
+                                       <td><?= $row['kode']; ?></td>
+                                       <td><?= $row['spesifikasi']; ?></td>
+                                       <td><?= $row['jumlah']; ?></td>
+                                       <td><?= $row['status']; ?> </td>
                                        <td style="text-align:center;">
                                            <a href="<?= base_url(); ?>/masterdata/ubah_alat_ukur/<?= $row['id']; ?>" style=" color: orange;" class="tampilModalUbahAlaUkur" data-id="<?= $row['id']; ?>" data-placement="top" title="Ubah"> <i class="fas fa-fw fa-pencil-alt" aria-hidden="true"></i>
                                            </a> &nbsp;
@@ -80,35 +80,35 @@
                        <input type="hidden" name="id" id="id">
                        <div class="modal-body text-gray-900">
                            <div class="form-group">
-                               <label for="bidang">Nama Alat</label>
-                               <input type="text" class="form-control" id="bidang" name="bidang">
-                               <?= form_error('bidang', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="nama_alat">Nama Alat</label>
+                               <input type="text" class="form-control" id="nama_alat" name="nama_alat">
+                               <?= form_error('nama_alat', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="form-group">
-                               <label for="data_pemeriksaan">Merk</label>
-                               <input type="text" class="form-control" id="data_pemeriksaan" name="data_pemeriksaan">
-                               <?= form_error('data_pemeriksaan', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="merk">Merk</label>
+                               <input type="text" class="form-control" id="merk" name="merk">
+                               <?= form_error('merk', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="form-group">
-                               <label for="sub_pemeriksaan">Kode</label>
-                               <input type="text" class="form-control" id="sub_pemeriksaan" name="sub_pemeriksaan">
-                               <?= form_error('sub_pemeriksaan', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="kode">Kode</label>
+                               <input type="text" class="form-control" id="kode" name="kode">
+                               <?= form_error('kode', ' <small class="text-danger">', '</small>'); ?>
 
                            </div>
                            <div class="form-group">
-                               <label for="nominal">Spesifikasi</label>
-                               <input type="number" class="form-control" value="Rp." id="nominal" name="nominal">
-                               <?= form_error('nominal', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="spesifikasi">Spesifikasi</label>
+                               <input type="number" class="form-control" value="Rp." id="spesifikasi" name="spesifikasi">
+                               <?= form_error('spesifikasi', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="form-group">
-                               <label for="tarif">Jumlah</label>
-                               <input type="text" class="form-control" id="tarif" name="tarif">
-                               <?= form_error('tarif', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="jumlah">Jumlah</label>
+                               <input type="text" class="form-control" id="jumlah" name="jumlah">
+                               <?= form_error('jumlah', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="form-group">
-                               <label for="satuan">Status</label>
-                               <input type="text" class="form-control" id="satuan" name="satuan">
-                               <?= form_error('satuan', ' <small class="text-danger">', '</small>'); ?>
+                               <label for="status">Status</label>
+                               <input type="text" class="form-control" id="status" name="status">
+                               <?= form_error('status', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="modal-footer">
                                <button type="submit" class="btn btn-primary">Save changes</button>

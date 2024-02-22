@@ -16,84 +16,84 @@
                            <input type="hidden" name="id" id="id" value="<?= $pemeriksaan['id']; ?>">
 
 
-                           <!-- Bidang -->
+                           <!-- nama alat -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="bidang" class="h5 mb-1 font-weight-bold text-gray-800">Bidang Pemeriksaan</label>
-                                               <input type="text" class="form-control" id="bidang" name="bidang" value="<?= $pemeriksaan['bidang']; ?>">
+                                               <label for="nama_alat" class="h5 mb-1 font-weight-bold text-gray-800">Nama Alat</label>
+                                               <input type="text" class="form-control" id="nama_alat" name="nama_alat" value="<?= $pemeriksaan['nama_alat']; ?>">
                                            </div>
                                        </div>
                                    </div>
                                </div>
                            </div>
 
-                           <!-- Data Pemeriksaan -->
+                           <!-- Merk -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="data_pemeriksaan" class="h5 mb-1 font-weight-bold text-gray-800">Data Pemeriksaan</label>
-                                               <input type="text" class="form-control" id="data_pemeriksaan" name="data_pemeriksaan" value="<?= $pemeriksaan['data_pemeriksaan']; ?>">
+                                               <label for="merk" class="h5 mb-1 font-weight-bold text-gray-800">Merk</label>
+                                               <input type="text" class="form-control" id="merk" name="merk" value="<?= $pemeriksaan['merk']; ?>">
                                            </div>
                                        </div>
                                    </div>
                                </div>
                            </div>
 
-                           <!-- Sub Pemeriksaan -->
+                           <!-- Kode -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="sub_pemeriksaan" class="h5 mb-1 font-weight-bold text-gray-800">Sub Pemeriksaan</label>
-                                               <input type="text" class="form-control" id="sub_pemeriksaan" name="sub_pemeriksaan" value="<?= $pemeriksaan['sub_pemeriksaan']; ?>">
+                                               <label for="kode" class="h5 mb-1 font-weight-bold text-gray-800">Kode</label>
+                                               <input type="text" class="form-control" id="kode" name="kode" value="<?= $pemeriksaan['kode']; ?>">
                                            </div>
                                        </div>
                                    </div>
                                </div>
                            </div>
 
-                           <!-- Nominal -->
+                           <!-- Spesifikasi -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="nominal" class="h5 mb-1 font-weight-bold text-gray-800">Nominal</label>
-                                               <input type="text" class="form-control" id="nominal" name="nominal" value="<?= $pemeriksaan['nominal']; ?>">
+                                               <label for="spesifikasi" class="h5 mb-1 font-weight-bold text-gray-800">Spesifikasi</label>
+                                               <input type="text" class="form-control" id="spesifikasi" name="spesifikasi" value="<?= $pemeriksaan['spesifikasi']; ?>">
                                            </div>
                                        </div>
                                    </div>
                                </div>
                            </div>
 
-                           <!-- Tarif -->
+                           <!-- Jumlah -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="tarif" class="h5 mb-1 font-weight-bold text-gray-800">Tarif</label>
-                                               <input type="text" class="form-control" id="tarif" name="tarif" value="<?= $pemeriksaan['tarif']; ?>">
+                                               <label for="jumlah" class="h5 mb-1 font-weight-bold text-gray-800">Jumlah</label>
+                                               <input type="text" class="form-control" id="jumlah" name="jumlah" value="<?= $pemeriksaan['jumlah']; ?>">
                                            </div>
                                        </div>
                                    </div>
                                </div>
                            </div>
 
-                           <!-- Satuan -->
+                           <!-- Status -->
                            <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                                <div class="card border-left-primary shadow h-100 py-1">
                                    <div class="card-body">
                                        <div class="row no-gutters align-items-center">
                                            <div class="col">
-                                               <label for="satuan" class="h5 mb-1 font-weight-bold text-gray-800">Satuan</label>
-                                               <input type="text" class="form-control" id="satuan" name="satuan" value="<?= $pemeriksaan['satuan']; ?>">
+                                               <label for="status" class="h5 mb-1 font-weight-bold text-gray-800">Status</label>
+                                               <input type="text" class="form-control" id="status" name="status" value="<?= $pemeriksaan['status']; ?>">
                                            </div>
                                        </div>
                                    </div>

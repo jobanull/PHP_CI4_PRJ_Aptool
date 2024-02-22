@@ -21,12 +21,12 @@ $(function () {
 			method: "post",
 			dataType: "json",
 			success: function (data) {
-				$("#bidang").val(data.bidang);
-				$("#data_pemeriksaan").val(data.data_pemeriksaan);
-				$("#sub_pemeriksaan").val(data.sub_pemeriksaan);
-				$("#tarif").val(data.tarif);
-				$("#nominal").val(data.nominal);
-				$("#satuan").val(data.satuan);
+				$("#nama_alat").val(data.bidang);
+				$("#merk").val(data.data_pemeriksaan);
+				$("#kode").val(data.sub_pemeriksaan);
+				$("#spesifikasi").val(data.tarif);
+				$("#jumlah").val(data.nominal);
+				$("#status").val(data.satuan);
 				$("#id").val(data.id);
 			},
 		});

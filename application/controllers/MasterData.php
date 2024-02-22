@@ -14,9 +14,7 @@ class MasterData extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->model('Menu_Model');
-        // $this->load->model('Md_Bidang_Model');
         $this->load->model('Md_Alat_Ukur_model');
-        // $this->load->model('Md_Obat_Model');
     }
 
     public function index()
@@ -35,11 +33,11 @@ class MasterData extends CI_Controller
 
         $data['dataPemeriksaan'] = $this->Md_Alat_Ukur_model->getDataAlatUkurResult();
 
-        $this->form_validation->set_rules('bidang', 'Bidang', 'required');
-        $this->form_validation->set_rules('data_pemeriksaan', 'Data_pemeriksaan', 'required');
-        $this->form_validation->set_rules('sub_pemeriksaan', 'Sub_pemeriksaan');
-        $this->form_validation->set_rules('nominal', 'Nominal');
-        $this->form_validation->set_rules('tarif', 'Tarif');
+        $this->form_validation->set_rules('nama_alat', 'Nama_alat', 'required');
+        $this->form_validation->set_rules('merk', 'Merk', 'required');
+        $this->form_validation->set_rules('kode', 'Kode');
+        $this->form_validation->set_rules('spesifikasi', 'Spesifikasi');
+        $this->form_validation->set_rules('jumlah', 'Jumlah');
         $this->form_validation->set_rules('satuan', 'Satuan');
 
         if ($this->form_validation->run() == false) {
@@ -50,11 +48,11 @@ class MasterData extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                'bidang' => htmlentities($this->input->post('bidang')),
-                'data_pemeriksaan' => htmlentities($this->input->post('data_pemeriksaan')),
-                'sub_pemeriksaan' => htmlentities($this->input->post('sub_pemeriksaan')),
-                'nominal' => htmlentities($this->input->post('nominal')),
-                'tarif' => htmlentities($this->input->post('tarif')),
+                'nama_alat' => htmlentities($this->input->post('nama_alat')),
+                'merk' => htmlentities($this->input->post('merk')),
+                'kode' => htmlentities($this->input->post('kode')),
+                'spesifikasi' => htmlentities($this->input->post('spesifikasi')),
+                'jumlah' => htmlentities($this->input->post('jumlah')),
                 'satuan' => htmlentities($this->input->post('satuan'))
             ];
 
@@ -85,11 +83,11 @@ class MasterData extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['pemeriksaan'] = $this->Md_Alat_Ukur_model->getDataAlatUkurById($id);
 
-        $this->form_validation->set_rules('bidang', 'Bidang', 'required');
-        $this->form_validation->set_rules('data_pemeriksaan', 'Data_pemeriksaan', 'required');
-        $this->form_validation->set_rules('sub_pemeriksaan', 'Sub_pemeriksaan');
-        $this->form_validation->set_rules('nominal', 'Nominal');
-        $this->form_validation->set_rules('tarif', 'Tarif');
+        $this->form_validation->set_rules('nama_alat', 'Nama_alat', 'required');
+        $this->form_validation->set_rules('merk', 'Merk', 'required');
+        $this->form_validation->set_rules('kode', 'Kode');
+        $this->form_validation->set_rules('spesifikasi', 'Spesifikasi');
+        $this->form_validation->set_rules('jumlah', 'Jumlah');
         $this->form_validation->set_rules('satuan', 'Satuan');
 
         if ($this->form_validation->run() == false) {
@@ -100,11 +98,11 @@ class MasterData extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                'bidang' => htmlentities($this->input->post('bidang')),
-                'data_pemeriksaan' => htmlentities($this->input->post('data_pemeriksaan')),
-                'sub_pemeriksaan' => htmlentities($this->input->post('sub_pemeriksaan')),
-                'nominal' => htmlentities($this->input->post('nominal')),
-                'tarif' => htmlentities($this->input->post('tarif')),
+                'nama_alat' => htmlentities($this->input->post('nama_alat')),
+                'merk' => htmlentities($this->input->post('merk')),
+                'kode' => htmlentities($this->input->post('kode')),
+                'spesifikasi' => htmlentities($this->input->post('spesifikasi')),
+                'jumlah' => htmlentities($this->input->post('jumlah')),
                 'satuan' => htmlentities($this->input->post('satuan'))
 
             ];

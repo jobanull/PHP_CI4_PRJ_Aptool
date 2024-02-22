@@ -19,13 +19,6 @@ class Surface extends CI_Controller
         $this->load->model('Sf_Registrasi_Pasien_Model');
         $this->load->model('Sf_Progress_Model');
 
-
-        // $this->load->model('Md_Obat_Model');
-        // $this->load->model('Md_Pengirim_Model');
-        // $this->load->model('Md_Kategori_Model');
-        // $this->load->model('Md_Satuan_Model');
-        // $this->load->model('Md_Bidang_Model');
-        // $this->load->model('Md_Petugas_Model');
         $this->load->model('Md_Alat_Ukur_model');
 
     }
@@ -186,7 +179,7 @@ class Surface extends CI_Controller
 
 
         $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-        $data['getDataPemeriksaanResult'] = $this->Md_Alat_Ukur_model->getDataPemeriksaanResult();
+        $data['getDataAlatUkurResult'] = $this->Md_Alat_Ukur_model->getDataAlatUkurResult();
         $data['getDataProgressResultWithID'] = $this->Sf_Progress_Model->getDataProgressResultWithID($id);
         $data['getDataPemeriksaanRowWitdId'] = $this->Sf_Progress_Model->getDataPemeriksaanRowWitdId($id);
 
