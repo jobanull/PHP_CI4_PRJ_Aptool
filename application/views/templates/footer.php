@@ -50,13 +50,7 @@
 <script src="<?= base_url('assets/'); ?>js/vendor/admin_role_edit.js"></script>
 <script src="<?= base_url('assets/'); ?>js/vendor/submenu_edit.js"></script>
 <script src="<?= base_url('assets/'); ?>js/vendor/menu_edit.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-pengirim.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-kategori.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-satuan.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-bidang.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-data-pemeriksaan.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-dokter.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-obat.js"></script>
+<script src="<?= base_url('assets/'); ?>js/vendor/script-alat-ukur.js"></script>
 
 
 <script>

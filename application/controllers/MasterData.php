@@ -39,6 +39,7 @@ class MasterData extends CI_Controller
         $this->form_validation->set_rules('spesifikasi', 'Spesifikasi');
         $this->form_validation->set_rules('jumlah', 'Jumlah');
         $this->form_validation->set_rules('satuan', 'Satuan');
+        $this->form_validation->set_rules('pemakai', 'Pemakai');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -53,7 +54,8 @@ class MasterData extends CI_Controller
                 'kode' => htmlentities($this->input->post('kode')),
                 'spesifikasi' => htmlentities($this->input->post('spesifikasi')),
                 'jumlah' => htmlentities($this->input->post('jumlah')),
-                'satuan' => htmlentities($this->input->post('satuan'))
+                'status' => htmlentities($this->input->post('status')),
+                'pemakai' => htmlentities($this->input->post('pemakai'))
             ];
 
             $this->db->insert('md_alat_ukur', $data);
@@ -88,7 +90,8 @@ class MasterData extends CI_Controller
         $this->form_validation->set_rules('kode', 'Kode');
         $this->form_validation->set_rules('spesifikasi', 'Spesifikasi');
         $this->form_validation->set_rules('jumlah', 'Jumlah');
-        $this->form_validation->set_rules('satuan', 'Satuan');
+        $this->form_validation->set_rules('status', 'status');
+        $this->form_validation->set_rules('pemakai', 'Pemakai');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -103,8 +106,8 @@ class MasterData extends CI_Controller
                 'kode' => htmlentities($this->input->post('kode')),
                 'spesifikasi' => htmlentities($this->input->post('spesifikasi')),
                 'jumlah' => htmlentities($this->input->post('jumlah')),
-                'satuan' => htmlentities($this->input->post('satuan'))
-
+                'status' => htmlentities($this->input->post('status')),
+                'pemakai' => htmlentities($this->input->post('pemakai'))
             ];
 
             $this->db->where('id', $this->input->post('id'));

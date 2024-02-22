@@ -99,6 +99,20 @@
                                    </div>
                                </div>
                            </div>
+
+                           <!-- Pemakai -->
+                           <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
+                               <div class="card border-left-primary shadow h-100 py-1">
+                                   <div class="card-body">
+                                       <div class="row no-gutters align-items-center">
+                                           <div class="col">
+                                               <label for="pemakai" class="h5 mb-1 font-weight-bold text-gray-800">Pemakai</label>
+                                               <input type="text" class="form-control" id="pemakai" name="pemakai" value="<?= $pemeriksaan['pemakai']; ?>">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
                        </div>
                        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px; margin-left: 30px;">Save changes</button>
 

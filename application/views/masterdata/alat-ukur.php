@@ -24,6 +24,7 @@
                                    <th>Jumlah</th>
                                    <th>Status</th>
                                    <th>Pemakai</th>
+                                   <th>Action</th>
                                </tr>
                            </thead>
                            <tfoot class="bg-gray-200">
@@ -36,6 +37,7 @@
                                    <th>Jumlah</th>
                                    <th>Status</th>
                                    <th>Pemakai</th>
+                                   <th>Action</th>
                                </tr>
                            </tfoot>
                            <tbody>
@@ -49,6 +51,7 @@
                                        <td><?= $row['spesifikasi']; ?></td>
                                        <td><?= $row['jumlah']; ?></td>
                                        <td><?= $row['status']; ?> </td>
+                                       <td><?= $row['pemakai']; ?> </td>
                                        <td style="text-align:center;">
                                            <a href="<?= base_url(); ?>/masterdata/ubah_alat_ukur/<?= $row['id']; ?>" style=" color: orange;" class="tampilModalUbahAlaUkur" data-id="<?= $row['id']; ?>" data-placement="top" title="Ubah"> <i class="fas fa-fw fa-pencil-alt" aria-hidden="true"></i>
                                            </a> &nbsp;
@@ -109,6 +112,11 @@
                                <label for="status">Status</label>
                                <input type="text" class="form-control" id="status" name="status">
                                <?= form_error('status', ' <small class="text-danger">', '</small>'); ?>
+                           </div>
+                           <div class="form-group">
+                               <label for="pemakai">Pemakai</label>
+                               <input type="text" class="form-control" id="pemakai" name="pemakai">
+                               <?= form_error('pemakai', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="modal-footer">
                                <button type="submit" class="btn btn-primary">Save changes</button>

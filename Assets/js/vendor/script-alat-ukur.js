@@ -27,6 +27,7 @@ $(function () {
 				$("#spesifikasi").val(data.tarif);
 				$("#jumlah").val(data.nominal);
 				$("#status").val(data.satuan);
+				$("#pemakai").val(data.pemakai);
 				$("#id").val(data.id);
 			},
 		});
