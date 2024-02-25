@@ -83,7 +83,7 @@ class Surface extends CI_Controller
     {
         $data['title'] = 'Ubah Data Registrasi Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['pasien'] = $this->Sf_Tickets_Model->getDataPasienById($id);
+        $data['pasien'] = $this->Sf_Tickets_Model->getDataPemeriksaanRowQueryWitdId($id);
 
 
         $this->form_validation->set_rules('id', 'ID');
@@ -223,12 +223,12 @@ class Surface extends CI_Controller
     {
         $mpdf = new \Mpdf\Mpdf();
         $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
+        $data['getDataPasienById'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
 
-        $data = $this->load->view('pdf/hasil', $data, TRUE);
+        $data = $this->load->view('pdf/report', $data, TRUE);
 
         $mpdf->WriteHTML($data);
-        $mpdf->Output('hasil_lab.pdf', \Mpdf\Output\Destination::INLINE);
+        $mpdf->Output('report.pdf', \Mpdf\Output\Destination::INLINE);
     }
 
     // -----------------------------------------------------------------------------------------------------
