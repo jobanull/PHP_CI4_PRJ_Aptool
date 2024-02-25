@@ -43,7 +43,7 @@
 
 
                        <div class="mb-5">
-                           <a href="<?= base_url('surface/laboratorium'); ?>" class="btn btn-light btn-icon-split ml-5">
+                           <a href="<?= base_url('surface/tickets'); ?>" class="btn btn-light btn-icon-split ml-5">
                                <span class="icon text-gray-600">
                                    <i class="fas fa-arrow-left"></i>
                                </span>

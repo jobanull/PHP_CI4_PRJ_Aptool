@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HASIL LABORATORIUM</title>
+    <title>HASIL PROSES BARANG</title>
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style.css">
     <style>
         html,
@@ -40,7 +40,7 @@
 
 <body>
     <div style="background-color: lightblue; height: 100px; text-align:center;">PROFIL KLINIK DAN LOGO</div>
-    <h2>HASIL LABORATORIUM</h2>
+    <h2>HASIL PROSES BARANG</h2>
 
 
 
@@ -84,7 +84,7 @@
         <?php foreach ($getDataProgressResultWithID as $row) : ?>
             <tr>
                 <td style="width: 5cm;font-size:20px;"><?= $row['progress_bidang']; ?></td>
-                <td style="width: 5cm;font-size:20px;"><?= $row['progress_pemeriksaan']; ?></td>
+                <td style="width: 5cm;font-size:20px;"><?= $row['progress']; ?></td>
                 <td style="width: 5cm;font-size:20px;"><?= $row['progress_sub']; ?></td>
                 <td style="width: 5cm;font-size:20px;"><?= $row['progress_hasil']; ?></td>
                 <td style="width: 5cm;font-size:20px;"><?= $row['progress_nominal'] . '&nbsp;' . $row['progress_satuan']; ?></td>

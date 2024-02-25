@@ -53,7 +53,7 @@
                                            <td style="text-align:center;">
                                                <a href="<?= base_url(); ?>surface/preview_data/<?= $row['id']; ?>" style=" color: light-blue;" data-toggle="tooltip" data-placement="top" title="Progress"><i class="far fa-fw fa-file" aria-hidden="true"></i>
                                                </a> &nbsp;
-                                               <a href="<?= base_url(); ?>/surface/hapus_data_registrasi_laboratorium/<?= $row['id']; ?>" style=" color: red;" onclick="return confirm('apakah anda yakin?');" data-toggle="tooltip" data-placement="top" title="Delete"> <i class="fas fa-trash"></i>
+                                               <a href="<?= base_url(); ?>/surface/hapus_data_registrasi_tickets/<?= $row['id']; ?>" style=" color: red;" onclick="return confirm('apakah anda yakin?');" data-toggle="tooltip" data-placement="top" title="Delete"> <i class="fas fa-trash"></i>
                                                </a>
                                            </td>
                                        </tr>

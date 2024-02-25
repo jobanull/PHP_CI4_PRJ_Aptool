@@ -74,7 +74,7 @@ class Surface extends CI_Controller
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Data Berhasil Ditambahkan</div>');
-            redirect('surface/laboratorium');
+            redirect('surface/tickets');
         }
     }
 
@@ -107,7 +107,7 @@ class Surface extends CI_Controller
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Data Berhasil Diubah</div>');
-            redirect('surface/laboratorium');
+            redirect('surface/tickets');
         }
     }
 
@@ -143,19 +143,19 @@ class Surface extends CI_Controller
         }
     }
 
-    public function hapus_data_registrasi_laboratorium($id)
+    public function hapus_data_registrasi_tickets($id)
     {
         $this->Sf_Tickets_Model->hapus_data_registrasi($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
        Data Berhasil Dihapus</div>');
-        redirect('surface/laboratorium');
+        redirect('surface/tickets');
     }
 
     //-----------------------------------------------------------------------------------------------------
 
-    public function Laboratorium()
+    public function Tickets()
     {
-        $data['title'] = 'Laboratorium';
+        $data['title'] = 'Tickets';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['hasil'] = $this->Sf_Tickets_Model->getDataPasienResult();
 
@@ -163,7 +163,7 @@ class Surface extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('surface/Laboratorium', $data);
+        $this->load->view('surface/tickets', $data);
         $this->load->view('templates/footer');
     }
 
@@ -210,7 +210,7 @@ class Surface extends CI_Controller
                 'tanggal_pengembalian' => htmlentities($this->input->post('tanggal_pengembalian')),
                 'jam_pengembalian' => htmlentities($this->input->post('jam_pengembalian'))
             ];
-            $this->db->insert('sf_progress_pemeriksaan', $data);
+            $this->db->insert('sf_progress', $data);
 
             $in = $id;
             redirect(base_url() . "surface/preview_data/" . $in);

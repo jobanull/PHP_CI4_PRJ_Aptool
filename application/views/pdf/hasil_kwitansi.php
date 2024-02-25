@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <h2>HASIL LABORATORIUM</h2>
+    <h2>HASIL PROSES BARANG</h2>
     <table style="page-break-inside:avoid">
         <tr>
             <td style="width: 10cm; ">Nomor Registrasi : <?= $getDataPasienById['rm']; ?></td>
@@ -85,7 +85,7 @@
 
 
                 <?php $totalHasil = $getDataPemeriksaanRowQueryWitdId['progress_tarif'];
-                $querySubMenu = "SELECT SUM(progress_tarif) as 'total', id_registrasi from sf_progress_pemeriksaan group by id_registrasi";
+                $querySubMenu = "SELECT SUM(progress_tarif) as 'total', id_registrasi from sf_progress group by id_registrasi";
                 $subMenu = $this->db->query($querySubMenu)->row_array();
 
                 ?>
