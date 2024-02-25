@@ -33,7 +33,7 @@
                                </tr>
                            </tfoot>
                            <tbody>
-                               <?php $query = "SELECT * FROM `sf_registrasi_pasien` ORDER BY id DESC ";
+                               <?php $query = "SELECT * FROM `sf_tickets` ORDER BY id DESC ";
                                 $hasil = $this->db->query($query)->result_array();
                                 ?>
 

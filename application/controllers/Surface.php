@@ -16,7 +16,7 @@ class Surface extends CI_Controller
 
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->model('Sf_Registrasi_Pasien_Model');
+        $this->load->model('Sf_Tickets_Model');
         $this->load->model('Sf_Progress_Model');
 
         $this->load->model('Md_Alat_Ukur_Model');
@@ -70,7 +70,7 @@ class Surface extends CI_Controller
                 'bayar' => htmlentities($this->input->post('bayar'))
 
             ];
-            $this->db->insert('sf_registrasi_pasien', $data);
+            $this->db->insert('sf_tickets', $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Data Berhasil Ditambahkan</div>');
@@ -83,10 +83,7 @@ class Surface extends CI_Controller
     {
         $data['title'] = 'Ubah Data Registrasi Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['pasien'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-        // $data['kategori'] = $this->Md_Kategori_Model->getDataKategoriResult();
-        // $data['dokter'] = $this->Md_Pengirim_Model->getDataPengirimResult();
-        // $data['petugas'] = $this->Md_Petugas_Model->getDataPetugasRow();
+        $data['pasien'] = $this->Sf_Tickets_Model->getDataPasienById($id);
 
 
         $this->form_validation->set_rules('id', 'ID');
@@ -106,7 +103,7 @@ class Surface extends CI_Controller
 
             ];
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('sf_registrasi_pasien', $data);
+            $this->db->update('sf_tickets', $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Data Berhasil Diubah</div>');
@@ -120,7 +117,7 @@ class Surface extends CI_Controller
     {
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
+        $data['getDataPasienById'] = $this->Sf_Tickets_Model->getDataPasienById($id);
 
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('bayar', 'Bayar');
@@ -138,7 +135,7 @@ class Surface extends CI_Controller
 
             ];
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('sf_registrasi_pasien', $data);
+            $this->db->update('sf_tickets', $data);
 
 
             $in = $id;
@@ -148,7 +145,7 @@ class Surface extends CI_Controller
 
     public function hapus_data_registrasi_laboratorium($id)
     {
-        $this->Sf_Registrasi_Pasien_Model->hapus_data_registrasi($id);
+        $this->Sf_Tickets_Model->hapus_data_registrasi($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
        Data Berhasil Dihapus</div>');
         redirect('surface/laboratorium');
@@ -160,8 +157,7 @@ class Surface extends CI_Controller
     {
         $data['title'] = 'Laboratorium';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['hasil'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienResult();
-        // $data['getDataPasienrow'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienrow();
+        $data['hasil'] = $this->Sf_Tickets_Model->getDataPasienResult();
 
 
         $this->load->view('templates/header', $data);
@@ -179,7 +175,7 @@ class Surface extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 
-        $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
+        $data['getDataPasienById'] = $this->Sf_Tickets_Model->getDataPasienById($id);
         $data['getDataAlatUkurResult'] = $this->Md_Alat_Ukur_Model->getDataAlatUkurResult();
         $data['getDataAlatBantuResult'] = $this->Md_Alat_Bantu_Model->getDataAlatBantuResult();
         $data['getDataProgressResultWithID'] = $this->Sf_Progress_Model->getDataProgressResultWithID($id);
@@ -227,7 +223,7 @@ class Surface extends CI_Controller
     {
         $mpdf = new \Mpdf\Mpdf();
         $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
+        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
 
         $data = $this->load->view('pdf/hasil', $data, TRUE);
 
@@ -241,7 +237,7 @@ class Surface extends CI_Controller
     {
         $mpdf = new \Mpdf\Mpdf();
         $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
+        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
         $data['getDataPemeriksaanRowQueryWitdId'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
         // $data['getDataPemeriksaanRowQueryWitdId';
         // die;
@@ -261,7 +257,7 @@ class Surface extends CI_Controller
     {
         $mpdf = new \Mpdf\Mpdf();
         $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
+        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
         $data['getDataPemeriksaanRowQueryWitdId'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
         // $data['getDataPemeriksaanRowQueryWitdId';
         // die;
