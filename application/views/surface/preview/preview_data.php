@@ -53,11 +53,11 @@
                                          <thead>
                                              <tr>
                                                  <td>Alat Ukur</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_ukur" id="id_alat_ukur" readonly></td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_ukur" id="id_alat_ukur" value="-" readonly></td>
                                                  <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".alat_ukur_modal">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
                                                      <td>Alat Bantu</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_bantu" id="id_alat_bantu" readonly></td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_bantu" id="id_alat_bantu" value="-" readonly></td>
                                                  <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".alat_bantu_modal">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
                                                 
@@ -72,7 +72,7 @@
                                              </tr>
                                              <tr>
                                                  <td>Tanggal Pengembalian</td>
-                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="tanggal_pengembalian" ></td>
+                                                 <td colspan="2"><input type="text" class="form-control bg-grey border-1 small" name="tanggal_pengembalian" value="<?= date('d F Y'); ?>" readonly ></td>
                                                  <td>Jam</td>
                                                  <td><input type="text" class="form-control bg-grey border-1 small"  name="jam_pengembalian"></td>
                                              </tr>
@@ -191,12 +191,7 @@
                              </form>
                          <?php else : ?>
 
-                             <a href="<?= base_url(''); ?>surface/pdf/<?= $getDataPasienById['id']; ?>" class="btn btn-primary mr-2" target="_blank"> <i class="fas fa-file-pdf"></i> Cetak Hasil Laboratorium</a>
-                             <a href="https://wa.me/<?= $getDataPasienById['nomor_hp']; ?>?text=Isi Pesan" target="_blank" class="btn btn-success mr-2"> <i class="fab fa-whatsapp"></i> Share Wa Pasien</a>
-                             <!-- <div><a href="https://wa.me/+6285735501035?text=Isi Pesan" target="_blank" class="btn btn-success mr-2"> <i class="fab fa-whatsapp"></i> Share Wa Dokter</a></div> -->
-                             <a href="<?= base_url(''); ?>/surface/pdf_kwitansi/<?= $getDataPasienById['id']; ?>" class="btn btn-primary " target="_blank"> <i class="fas fa-file-pdf"></i> Cetak Kwitansi</a>
-                             <!-- &nbsp;&nbsp; <a href="<?= base_url(''); ?>/surface/label/<?= $getDataPasienById['id']; ?>" class="btn btn-primary " target="_blank"> <i class="fas fa-file-pdf"></i> Req Pak Eko</a> -->
-                             &nbsp;&nbsp; <a href="" class="btn btn-primary " target="_blank"> <i class="fas fa-file-pdf"></i> Req Pak Eko</a>
+                             <a href="<?= base_url(''); ?>surface/pdf/<?= $getDataPasienById['id']; ?>" class="btn btn-primary mr-2" target="_blank"> <i class="fas fa-file-pdf"></i> Cetak</a>
 
                          <?php endif; ?>
                      </div>
