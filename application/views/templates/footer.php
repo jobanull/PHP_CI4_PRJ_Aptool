@@ -100,19 +100,11 @@
 
         $(document).on('click', '#select', function() {
             var id = $(this).data('id');
-            var bidang = $(this).data('bidang');
-            var sub = $(this).data('sub');
-            var pemeriksaan = $(this).data('pemeriksaan');
-            var nominal = $(this).data('nominal');
-            var satuan = $(this).data('satuan');
-            var tarif = $(this).data('tarif');
+            var alat_ukur = $(this).data('alat_ukur');
+            var alat_bantu = $(this).data('alat_bantu');
             $('#id').val(id);
-            $('#id_bidang').val(bidang);
-            $('#id_pemeriksaan').val(pemeriksaan);
-            $('#id_sub').val(sub);
-            $('#id_nominal').val(nominal);
-            $('#id_satuan').val(satuan);
-            $('#id_tarif').val(tarif);
+            $('#id_alat_ukur').val(alat_ukur);
+            $('#id_alat_bantu').val(alat_bantu);
             $('#modal_item').modal('hide');
         })
     })
@@ -133,24 +125,6 @@
     }
 </script>
 
-<script>
-
-// Temukan elemen input untuk alat ukur dan alat bantu
-var alatUkurInput = document.getElementById('id_bidang');
-var alatBantuInput = document.getElementById('id_bidang_bantu');
-
-// Fungsi untuk menghapus atribut "name" dari input alat bantu
-function hapusAtributName() {
-    alatBantuInput.removeAttribute('name');
-}
-
-// Cek apakah input alat ukur memiliki nilai dari modal pilih
-if (alatUkurInput.value !== '') {
-    // Jika ya, panggil fungsi untuk menghapus atribut "name" dari input alat bantu
-    hapusAtributName();
-}
-
-</script>
 
 
 

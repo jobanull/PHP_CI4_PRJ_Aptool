@@ -19,7 +19,8 @@ class Surface extends CI_Controller
         $this->load->model('Sf_Registrasi_Pasien_Model');
         $this->load->model('Sf_Progress_Model');
 
-        $this->load->model('Md_Alat_Ukur_model');
+        $this->load->model('Md_Alat_Ukur_Model');
+        $this->load->model('Md_Alat_Bantu_Model');
 
     }
 
@@ -179,14 +180,16 @@ class Surface extends CI_Controller
 
 
         $data['getDataPasienById'] = $this->Sf_Registrasi_Pasien_Model->getDataPasienById($id);
-        $data['getDataAlatUkurResult'] = $this->Md_Alat_Ukur_model->getDataAlatUkurResult();
+        $data['getDataAlatUkurResult'] = $this->Md_Alat_Ukur_Model->getDataAlatUkurResult();
+        $data['getDataAlatBantuResult'] = $this->Md_Alat_Bantu_Model->getDataAlatBantuResult();
         $data['getDataProgressResultWithID'] = $this->Sf_Progress_Model->getDataProgressResultWithID($id);
         $data['getDataPemeriksaanRowWitdId'] = $this->Sf_Progress_Model->getDataPemeriksaanRowWitdId($id);
 
 
         $this->form_validation->set_rules('id_registrasi', 'Registrasi', 'required');
         $this->form_validation->set_rules('nama_peminjam', 'Nama_Peminjam');
-        $this->form_validation->set_rules('jenis_barang', 'Jenis_Barang');
+        $this->form_validation->set_rules('alat_ukur', 'Alat_Ukur');
+        $this->form_validation->set_rules('alat_bantu', 'Alat_Bantu');
         $this->form_validation->set_rules('jumlah', 'Jumlah');
         $this->form_validation->set_rules('tanggal_peminjaman', 'Tanggal_Peminjaman');
         $this->form_validation->set_rules('jam_peminjaman', 'Jam_Peminjaman');
@@ -203,7 +206,8 @@ class Surface extends CI_Controller
             $data = [
                 'id_registrasi' => htmlentities($this->input->post('id_registrasi')),
                 'nama_peminjam' => htmlentities($this->input->post('nama_peminjam')),
-                'jenis_barang' => htmlentities($this->input->post('jenis_barang')),
+                'alat_ukur' => htmlentities($this->input->post('alat_ukur')),
+                'alat_bantu' => htmlentities($this->input->post('alat_bantu')),
                 'jumlah' => htmlentities($this->input->post('jumlah')),
                 'tanggal_peminjaman' => htmlentities($this->input->post('tanggal_peminjaman')),
                 'jam_peminjaman' => htmlentities($this->input->post('jam_peminjaman')),

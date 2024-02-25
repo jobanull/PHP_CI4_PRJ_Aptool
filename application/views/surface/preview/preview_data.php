@@ -53,12 +53,12 @@
                                          <thead>
                                              <tr>
                                                  <td>Alat Ukur</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="jenis_barang" id="id_bidang" readonly></td>
-                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_ukur" id="id_alat_ukur" readonly></td>
+                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".alat_ukur_modal">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
-                                                 <td>Alat Bantu</td>
-                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="jenis_barang" id="id_bidang_bantu" readonly></td>
-                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".bd-example-modal-lg">Pilih <i class="fa fa-search" aria-hidden="true"></i>
+                                                     <td>Alat Bantu</td>
+                                                 <td><input type="text" class="form-control bg-grey border-1 small" name="alat_bantu" id="id_alat_bantu" readonly></td>
+                                                 <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".alat_bantu_modal">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
                                                 
                                              </tr>
@@ -94,7 +94,7 @@
                              <!-- MODAL -->
 
 
-                             <div class="modal fade bd-example-modal-lg " id="modal_item" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                             <div class="modal fade bd-example-modal-lg alat_ukur_modal" id="id_alat_ukur" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                  <div class="modal-dialog modal-lg">
                                      <div class="modal-content">
 
@@ -112,8 +112,40 @@
                                                  <tbody>
                                                      <?php foreach ($getDataAlatUkurResult as $s) : ?>
                                                          <tr>
-                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-bidang="<?= $s['nama_alat']; ?>" data-pemeriksaan='<?= $s['data_pemeriksaan']; ?>' data-sub='<?= $s['sub_pemeriksaan']; ?>' data-nominal='<?= $s['nominal']; ?>' data-satuan='<?= $s['satuan']; ?>' data-tarif='<?= $s['tarif']; ?>'> Pilih </b utton></td>
-                                                             <td><?= $s['merk']; ?></td>
+                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-alat_ukur='<?= $s['nama_alat']; ?>'> Pilih </b utton></td>
+                                                             <td><?= $s['nama_alat']; ?></td>
+                                                             <td><?= $s['kode']; ?></td>
+                                                             <td><?= $s['spesifikasi']; ?></td>
+                                                             <td><?= $s['status']; ?></td>
+                                                         </tr>
+                                                     <?php endforeach; ?>
+                                                 </tbody>
+                                             </table>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class="modal fade bd-example-modal-lg alat_bantu_modal" id="id_alat_bantu" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog modal-lg">
+                                     <div class="modal-content">
+
+                                         <div class="modal-body">
+                                             <table class="table table-hover text-gray-900" id="dataTable">
+                                                 <thead>
+                                                     <tr>
+                                                         <th>Aksi</th>
+                                                         <th>Bidang</th>
+                                                         <th>Pemeriksaan</th>
+                                                         <th>Sub</th>
+                                                         <th>Nominal</th>
+                                                     </tr>
+                                                 </thead>
+                                                 <tbody>
+                                                     <?php foreach ($getDataAlatBantuResult as $s) : ?>
+                                                         <tr>
+                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-alat_bantu='<?= $s['nama_alat']; ?>'> Pilih </b utton></td>
+                                                             <td><?= $s['nama_alat']; ?></td>
                                                              <td><?= $s['kode']; ?></td>
                                                              <td><?= $s['spesifikasi']; ?></td>
                                                              <td><?= $s['status']; ?></td>
@@ -174,7 +206,8 @@
                                  <tr>
                                      <th>No</th>
                                      <th>Nama Peminjam</th>
-                                     <th>Jenis Barang</th>
+                                     <th>Alat Ukur</th>
+                                     <th>Alat Bantu</th>
                                      <th>Jumlah</th>
                                      <th>Tanggal Peminjaman</th>
                                      <th>Jam</th>
@@ -186,7 +219,8 @@
                                  <tr>
                                  <th>No</th>
                                      <th>Nama Peminjam</th>
-                                     <th>Jenis Barang</th>
+                                     <th>Alat Ukur</th>
+                                     <th>Alat Bantu</th>
                                      <th>Jumlah</th>
                                      <th>Tanggal Peminjaman</th>
                                      <th>Jam</th>
@@ -200,7 +234,8 @@
                                     <tr>
                                          <td><?= $i++; ?></td>
                                          <td><?= $row['nama_peminjam']; ?></td>
-                                         <td><?= $row['jenis_barang']; ?></td>
+                                         <td><?= $row['alat_ukur']; ?></td>
+                                         <td><?= $row['alat_bantu']; ?></td>
                                          <td><?= $row['jumlah']; ?></td>
                                          <td><?= $row['tanggal_peminjaman']; ?></td>
                                          <td><?= $row['jam_peminjaman']; ?></td>
