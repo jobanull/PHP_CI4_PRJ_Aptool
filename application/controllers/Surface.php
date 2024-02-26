@@ -46,9 +46,9 @@ class Surface extends CI_Controller
     // -----------------------------------------------------------------------------------------------------
 
 
-    public function Registrasi_Pasien()
+    public function Open_Ticket()
     {
-        $data['title'] = 'Registrasi Pasien';
+        $data['title'] = 'Open Ticket';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('rm', 'RM', 'required');
@@ -60,7 +60,7 @@ class Surface extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('surface/registrasi', $data);
+            $this->load->view('surface/open-ticket', $data);
             $this->load->view('templates/footer');
         } else {
             $data = [
@@ -79,37 +79,7 @@ class Surface extends CI_Controller
     }
 
 
-    public function Ubah_Data_Registrasi_Pasien($id)
-    {
-        $data['title'] = 'Ubah Data Registrasi Pasien';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['pasien'] = $this->Sf_Tickets_Model->getDataPemeriksaanRowQueryWitdId($id);
-
-
-        $this->form_validation->set_rules('id', 'ID');
-        $this->form_validation->set_rules('rm', 'RM');
-        $this->form_validation->set_rules('tgl_registrasi', 'Tgl_Registrasi');
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('surface/ubah-registrasi', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $data = [
-                'id' => htmlentities($this->input->post('id')),
-                'rm' => htmlentities($this->input->post('rm')),
-                'tgl_registrasi' => htmlentities($this->input->post('tgl_registrasi')),
-
-            ];
-            $this->db->where('id', $this->input->post('id'));
-            $this->db->update('sf_tickets', $data);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Data Berhasil Diubah</div>');
-            redirect('surface/tickets');
-        }
-    }
+   
 
     // ------------------------------------------------------------------------------------------
 
@@ -233,43 +203,7 @@ class Surface extends CI_Controller
 
     // -----------------------------------------------------------------------------------------------------
 
-    public function PDF_Kwitansi($id)
-    {
-        $mpdf = new \Mpdf\Mpdf();
-        $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
-        $data['getDataPemeriksaanRowQueryWitdId'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
-        // $data['getDataPemeriksaanRowQueryWitdId';
-        // die;
-
-
-        $data = $this->load->view('pdf/hasil_kwitansi', $data, TRUE);
-
-
-        $mpdf->WriteHTML($data);
-        $mpdf->Output('hasil_lab.pdf', \Mpdf\Output\Destination::INLINE);
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-
-
-    public function label($id)
-    {
-        $mpdf = new \Mpdf\Mpdf();
-        $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Tickets_Model->getDataPasienById($id);
-        $data['getDataPemeriksaanRowQueryWitdId'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
-        // $data['getDataPemeriksaanRowQueryWitdId';
-        // die;
-
-
-        $data = $this->load->view('pdf/label', $data, TRUE);
-
-
-        $mpdf->WriteHTML($data);
-        $mpdf->Output('label.pdf', \Mpdf\Output\Destination::INLINE);
-    }
-
+    
     
 
     public function Myprofile()

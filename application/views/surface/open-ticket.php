@@ -6,7 +6,7 @@
            <?= $this->session->flashdata('message'); ?>
            <!-- DataTales Example -->
            <div class="card shadow mb-4">
-               <form action="<?= base_url('surface/registrasi_pasien'); ?>" method="post">
+               <form action="<?= base_url('surface/open_ticket'); ?>" method="post">
                    <div class="row">
                        <input type="hidden" name="sts" id="sts" value="1">
                        <input type="hidden" name="bayar" id="bayar" value="a">
