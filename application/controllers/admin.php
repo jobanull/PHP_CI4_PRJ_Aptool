@@ -18,11 +18,6 @@ class Admin extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['total_pasien'] = $this->Sf_Tickets_Model->getDataTotalPasien();
-        $data['belum_bayar'] = $this->Sf_Tickets_Model->getDataBelumBayar();
-        $data['sudah_bayar'] = $this->Sf_Tickets_Model->getDataSudahBayar();
-
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

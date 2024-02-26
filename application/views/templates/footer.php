@@ -78,22 +78,6 @@
     });
 </script>
 
-
-<!-- Payment -->
-
-<script>
-    function myFunction() {
-        var x = document.getElementsById("wa");
-        var y = document.getElementById("bayar");
-        y.style.display = "none";
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
-
 <!-- Script Load Modal -->
 <script>
     $(document).ready(function() {
@@ -132,92 +116,6 @@
 <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script>
-    Highcharts.chart('myPieChart', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Diagram Data Pasien'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
-            }
-        },
-        series: [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: [
-
-                <?php foreach ($sudah_bayar as $sudah) : ?> {
-                        name: 'Sudah Bayar',
-                        y: <?= $sudah['sudah_bayar']; ?>
-                    },
-                <?php endforeach; ?>
-
-                <?php foreach ($belum_bayar as $belum) : ?> {
-                        name: 'Belum Bayar',
-                        y: <?= $belum['belum_bayar']; ?>
-                    },
-                <?php endforeach; ?>
-
-                <?php foreach ($total_pasien as $total) : ?> {
-                        name: 'Total Pasien',
-                        y: <?= $total['total_pasien']; ?>
-                    }
-                <?php endforeach; ?>
-                //     {
-                //     name: 'Chrome',
-                //     y: 61.41,
-                //     sliced: true,
-                //     selected: true
-                // }, {
-                //     name: 'Internet Explorer',
-                //     y: 11.84
-                // }, {
-                //     name: 'Firefox',
-                //     y: 10.85
-                // }, {
-                //     name: 'Edge',
-                //     y: 4.67
-                // }, {
-                //     name: 'Safari',
-                //     y: 4.18
-                // }, {
-                //     name: 'Sogou Explorer',
-                //     y: 1.64
-                // }, {
-                //     name: 'Opera',
-                //     y: 1.6
-                // }, {
-                //     name: 'QQ',
-                //     y: 1.2
-                // }, {
-                //     name: 'Other',
-                //     y: 2.61
-                // }
-            ]
-        }]
-    });
-</script>   
-
 
 
 </body>

@@ -19,9 +19,9 @@
                                  <thead>
                                      <tr>
                                          <td>Nomor Tiket</td>
-                                         <td><?= $getDataPasienById['rm']; ?></td>
+                                         <td><?= $getDataBarangById['rm']; ?></td>
                                          <td>Tanggal Peminjaman</td>
-                                         <td><?= $getDataPasienById['tgl_registrasi']; ?></td>
+                                         <td><?= $getDataBarangById['tgl_registrasi']; ?></td>
                                      </tr>
                                  </thead>
                                  
@@ -44,11 +44,11 @@
                          </div>
                          <!-- Card Body -->
                          <div class="card-body">
-                             <?php if ($getDataPasienById['bayar'] == 'b') : ?>
+                             <?php if ($getDataBarangById['bayar'] == 'b') : ?>
                                  <div></div>
                              <?php else : ?>
-                                 <form action="<?= base_url(''); ?>surface/preview_data/<?= $getDataPasienById['id']; ?>" method="post">
-                                     <input type="hidden" name="id_registrasi" value="<?= $getDataPasienById['id']; ?>" id="">
+                                 <form action="<?= base_url(''); ?>surface/preview_data/<?= $getDataBarangById['id']; ?>" method="post">
+                                     <input type="hidden" name="id_registrasi" value="<?= $getDataBarangById['id']; ?>" id="">
                                      <table class="table table-borderless text-gray-900">
                                          <thead>
                                              <tr>
@@ -184,14 +184,14 @@
                  </div>
                  <div class="card-body ">
                      <div class="row mb-2 ml-1">
-                         <?php if ($getDataPasienById['bayar'] == 'a') : ?>
-                             <form action="<?= base_url(); ?>surface/bayar/<?= $getDataPasienById['id']; ?>" method="POST">
-                                 <input type="hidden" name="id" value="<?= $getDataPasienById['id']; ?>" id="">
+                         <?php if ($getDataBarangById['bayar'] == 'a') : ?>
+                             <form action="<?= base_url(); ?>surface/bayar/<?= $getDataBarangById['id']; ?>" method="POST">
+                                 <input type="hidden" name="id" value="<?= $getDataBarangById['id']; ?>" id="">
                                  <button for="bayar" class="btn btn-danger mr-2" name="bayar" value="b">SELESAI</button>
                              </form>
                          <?php else : ?>
 
-                             <a href="<?= base_url(''); ?>surface/pdf/<?= $getDataPasienById['id']; ?>" class="btn btn-primary mr-2" target="_blank"> <i class="fas fa-file-pdf"></i> Cetak</a>
+                             <a href="<?= base_url(''); ?>surface/pdf/<?= $getDataBarangById['id']; ?>" class="btn btn-primary mr-2" target="_blank"> <i class="fas fa-file-pdf"></i> Cetak</a>
 
                          <?php endif; ?>
                      </div>

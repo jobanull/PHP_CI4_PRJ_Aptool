@@ -87,7 +87,7 @@ class Surface extends CI_Controller
     {
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['getDataPasienById'] = $this->Sf_Tickets_Model->getDataPasienById($id);
+        $data['getDataBarangById'] = $this->Sf_Tickets_Model->getDataBarangById($id);
 
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('bayar', 'Bayar');
@@ -113,9 +113,9 @@ class Surface extends CI_Controller
         }
     }
 
-    public function hapus_data_registrasi_tickets($id)
+    public function hapus_data_tickets($id)
     {
-        $this->Sf_Tickets_Model->hapus_data_registrasi($id);
+        $this->Sf_Tickets_Model->hapus_data_ticket($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
        Data Berhasil Dihapus</div>');
         redirect('surface/tickets');
@@ -127,7 +127,7 @@ class Surface extends CI_Controller
     {
         $data['title'] = 'Tickets';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['hasil'] = $this->Sf_Tickets_Model->getDataPasienResult();
+        $data['hasil'] = $this->Sf_Tickets_Model->getDataBarangResult();
 
 
         $this->load->view('templates/header', $data);
@@ -145,7 +145,7 @@ class Surface extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 
-        $data['getDataPasienById'] = $this->Sf_Tickets_Model->getDataPasienById($id);
+        $data['getDataBarangById'] = $this->Sf_Tickets_Model->getDataBarangById($id);
         $data['getDataAlatUkurResult'] = $this->Md_Alat_Ukur_Model->getDataAlatUkurResult();
         $data['getDataAlatBantuResult'] = $this->Md_Alat_Bantu_Model->getDataAlatBantuResult();
         $data['getDataProgressResultWithID'] = $this->Sf_Progress_Model->getDataProgressResultWithID($id);
@@ -193,7 +193,7 @@ class Surface extends CI_Controller
     {
         $mpdf = new \Mpdf\Mpdf();
         $data['getDataProgressResultWithID'] =  $this->Sf_Progress_Model->getDataProgressResultWithID($id);
-        $data['getDataPasienById'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
+        $data['getDataBarangById'] =  $this->Sf_Progress_Model->getDataPemeriksaanRowQueryWitdId($id);
 
         $data = $this->load->view('pdf/report', $data, TRUE);
 

@@ -59,25 +59,25 @@
         <tr>
         <td style="width: 5cm">Tanggal Peminjaman  </td>
         <td>:</td>
-        <td><?= $getDataPasienById['tanggal_peminjaman']; ?></td>
+        <td><?= $getDataBarangById['tanggal_peminjaman']; ?></td>
             <td>Jam </td>
             <td>:</td>
-            <td> <?= $getDataPasienById['jam_peminjaman']; ?></td>
+            <td> <?= $getDataBarangById['jam_peminjaman']; ?></td>
         </tr>
         <tr>
             <td style="width: 5cm">Tanggal Pengembalian  </td>
             <td>:</td>
-            <td><?= $getDataPasienById['tanggal_pengembalian']; ?></td>
+            <td><?= $getDataBarangById['tanggal_pengembalian']; ?></td>
             <td>Jam </td>
             <td>:</td>
-            <td><?= $getDataPasienById['jam_pengembalian']; ?></td>
+            <td><?= $getDataBarangById['jam_pengembalian']; ?></td>
         </tr>
     </table>
 
     <table style="margin: 30px; text-align: center;">
         <tr>
             <td style="width: 7cm">Yang Meminjam</td>
-            <td> Bogor, <?= $getDataPasienById['tanggal_peminjaman']; ?> <br> Status Barang</td>
+            <td> Bogor, <?= $getDataBarangById['tanggal_peminjaman']; ?> <br> Status Barang</td>
         </tr>
         
         <?php foreach ($getDataProgressResultWithID as $row) : ?>
@@ -120,18 +120,18 @@
         <tr>
         <td style="width: 5cm">Tanggal Peminjaman  </td>
         <td>:</td>
-        <td><?= $getDataPasienById['tanggal_peminjaman']; ?></td>
+        <td><?= $getDataBarangById['tanggal_peminjaman']; ?></td>
             <td>Jam </td>
             <td>:</td>
-            <td> <?= $getDataPasienById['jam_peminjaman']; ?></td>
+            <td> <?= $getDataBarangById['jam_peminjaman']; ?></td>
         </tr>
         <tr>
             <td style="width: 5cm">Tanggal Pengembalian  </td>
             <td>:</td>
-            <td><?= $getDataPasienById['tanggal_pengembalian']; ?></td>
+            <td><?= $getDataBarangById['tanggal_pengembalian']; ?></td>
             <td>Jam </td>
             <td>:</td>
-            <td><?= $getDataPasienById['jam_pengembalian']; ?></td>
+            <td><?= $getDataBarangById['jam_pengembalian']; ?></td>
         </tr>
     </table>
 
@@ -140,7 +140,7 @@
     <table style="margin: 30px; text-align: center;">
         <tr>
             <td style="width: 7cm">Yang Meminjam</td>
-            <td> Bogor, <?= $getDataPasienById['tanggal_peminjaman']; ?> <br> Status Barang</td>
+            <td> Bogor, <?= $getDataBarangById['tanggal_peminjaman']; ?> <br> Status Barang</td>
         </tr>
         
         <?php foreach ($getDataProgressResultWithID as $row) : ?>
