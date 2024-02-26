@@ -55,9 +55,11 @@
         $(document).on('click', '#select', function() {
             var id = $(this).data('id');
             var alat_ukur = $(this).data('alat_ukur');
+            var alat_ukur1 = $(this).data('alat_ukur1');
             var alat_bantu = $(this).data('alat_bantu');
             $('#id').val(id);
             $('#id_alat_ukur').val(alat_ukur);
+            $('#id_alat_ukur1').val(alat_ukur1);
             $('#id_alat_bantu').val(alat_bantu);
             $('#modal_item').modal('hide');
         })

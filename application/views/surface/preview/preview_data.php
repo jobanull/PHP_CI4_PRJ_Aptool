@@ -54,6 +54,7 @@
                                              <tr>
                                                  <td>Alat Ukur</td>
                                                  <td><input type="text" class="form-control bg-grey border-1 small" name="alat_ukur" id="id_alat_ukur" value="-" readonly></td>
+                                                 <input type="hidden" class="form-control bg-grey border-1 small" name="status" id="id_alat_ukur1" value="-" readonly>
                                                  <td><a href="" class="btn btn-primary" data-toggle="modal"  data-target=".alat_ukur_modal">Pilih <i class="fa fa-search" aria-hidden="true"></i>
                                                      </a></td>
                                                      <td>Alat Bantu</td>
@@ -103,16 +104,16 @@
                                                  <thead>
                                                      <tr>
                                                          <th>Aksi</th>
-                                                         <th>Bidang</th>
-                                                         <th>Pemeriksaan</th>
-                                                         <th>Sub</th>
-                                                         <th>Nominal</th>
+                                                         <th>Jenis Alat</th>
+                                                         <th>Merk</th>
+                                                         <th>Spesifikasi</th>
+                                                         <th>Status</th>
                                                      </tr>
                                                  </thead>
                                                  <tbody>
                                                      <?php foreach ($getDataAlatUkurResult as $s) : ?>
                                                          <tr>
-                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-alat_ukur='<?= $s['nama_alat']; ?>'> Pilih </b utton></td>
+                                                             <td scope="row"><button type="" class="btn btn-primary" id="select" data-id="<?= $s['id']; ?>" data-alat_ukur='<?= $s['nama_alat']; ?>' data-alat_ukur1='<?= $s['status']; ?>'> Pilih </b utton></td>
                                                              <td><?= $s['nama_alat']; ?></td>
                                                              <td><?= $s['kode']; ?></td>
                                                              <td><?= $s['spesifikasi']; ?></td>
@@ -134,11 +135,11 @@
                                              <table class="table table-hover text-gray-900" id="dataTable">
                                                  <thead>
                                                      <tr>
-                                                         <th>Aksi</th>
-                                                         <th>Bidang</th>
-                                                         <th>Pemeriksaan</th>
-                                                         <th>Sub</th>
-                                                         <th>Nominal</th>
+                                                        <th>Aksi</th>
+                                                         <th>Jenis Alat</th>
+                                                         <th>Merk</th>
+                                                         <th>Spesifikasi</th>
+                                                         <th>Status</th>
                                                      </tr>
                                                  </thead>
                                                  <tbody>

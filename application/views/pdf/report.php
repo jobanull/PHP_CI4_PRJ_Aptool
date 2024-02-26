@@ -83,8 +83,8 @@
         <?php foreach ($getDataProgressResultWithID as $row) : ?>
             <?php if( $row['alat_bantu'] == '') : ?>
            <tr>
-           <td><?= $row['nama_peminjam']; ?></td>
-           <td>(......)</td>
+           <td><?= $row['nama_peminjam']; ?> <br> (.......)</td>
+           <td><?= $row['status']; ?></td>
            </tr>
            <?php endif; ?>
         <?php endforeach; ?>
@@ -144,8 +144,8 @@
         <?php foreach ($getDataProgressResultWithID as $row) : ?>
             <?php if( $row['alat_ukur'] == '') : ?>
            <tr>
-           <td><?= $row['nama_peminjam']; ?></td>
-           <td>(......)</td>
+           <td><?= $row['nama_peminjam']; ?> <br> (....)</td>
+           <td><?= $row['status']; ?></td>
            </tr>
            <?php endif; ?>
         <?php endforeach; ?>

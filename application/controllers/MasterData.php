@@ -206,21 +206,4 @@ class MasterData extends CI_Controller
             redirect('masterdata/alat_bantu');
         }
     }
-
-    // -----------------------------------------------------------------------------------------  
-
-    
-
-    public function users()
-    {
-        $data['title'] = 'Users';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['users'] = $this->db->get('user')->result_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('masterdata/Users', $data);
-        $this->load->view('templates/footer');
-    }
 }

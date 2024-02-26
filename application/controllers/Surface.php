@@ -161,6 +161,7 @@ class Surface extends CI_Controller
         $this->form_validation->set_rules('jam_peminjaman', 'Jam_Peminjaman');
         $this->form_validation->set_rules('tanggal_pengembalian', 'Tanggal_Pengembalian');
         $this->form_validation->set_rules('jam_pengembalian', 'Jam_Pengembalian');
+        $this->form_validation->set_rules('status', 'Status');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -178,7 +179,8 @@ class Surface extends CI_Controller
                 'tanggal_peminjaman' => htmlentities($this->input->post('tanggal_peminjaman')),
                 'jam_peminjaman' => htmlentities($this->input->post('jam_peminjaman')),
                 'tanggal_pengembalian' => htmlentities($this->input->post('tanggal_pengembalian')),
-                'jam_pengembalian' => htmlentities($this->input->post('jam_pengembalian'))
+                'jam_pengembalian' => htmlentities($this->input->post('jam_pengembalian')),
+                'status' => htmlentities($this->input->post('status'))
             ];
             $this->db->insert('sf_progress', $data);
 
