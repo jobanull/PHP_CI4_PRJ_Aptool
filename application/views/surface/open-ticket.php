@@ -9,7 +9,7 @@
                <form action="<?= base_url('surface/open_ticket'); ?>" method="post">
                    <div class="row">
                        <input type="hidden" name="sts" id="sts" value="1">
-                       <input type="hidden" name="bayar" id="bayar" value="a">
+                       <input type="hidden" name="selesai" id="selesai" value="a">
                        <!-- KODE REGISTRASI -->
                        <div class="col-xl-5 col-md-6 mt-4 mb-4 ml-4 mr-2 ">
                            <div class="card border-left-primary shadow h-100 py-1">

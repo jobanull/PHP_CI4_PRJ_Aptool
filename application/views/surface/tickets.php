@@ -44,9 +44,9 @@
                                            <td><?= $row['rm']; ?></td>
                                            <td><?= $row['tgl_registrasi']; ?></td>
                                            <td>
-                                               <?php if ($row['bayar'] == 'a') : ?>
+                                               <?php if ($row['selesai'] == 'a') : ?>
                                                    <p class="btn btn-danger"> Belum Selesai</p>
-                                               <?php elseif ($row['bayar'] == 'b') : ?>
+                                               <?php elseif ($row['selesai'] == 'b') : ?>
                                                    <p class="btn btn-success"> Sudah Selesai</p>
                                                <?php endif; ?>
                                            </td>

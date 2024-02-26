@@ -44,7 +44,7 @@
                          </div>
                          <!-- Card Body -->
                          <div class="card-body">
-                             <?php if ($getDataBarangById['bayar'] == 'b') : ?>
+                             <?php if ($getDataBarangById['selesai'] == 'b') : ?>
                                  <div></div>
                              <?php else : ?>
                                  <form action="<?= base_url(''); ?>surface/preview_data/<?= $getDataBarangById['id']; ?>" method="post">
@@ -184,10 +184,10 @@
                  </div>
                  <div class="card-body ">
                      <div class="row mb-2 ml-1">
-                         <?php if ($getDataBarangById['bayar'] == 'a') : ?>
-                             <form action="<?= base_url(); ?>surface/bayar/<?= $getDataBarangById['id']; ?>" method="POST">
+                         <?php if ($getDataBarangById['selesai'] == 'a') : ?>
+                             <form action="<?= base_url(); ?>surface/selesai/<?= $getDataBarangById['id']; ?>" method="POST">
                                  <input type="hidden" name="id" value="<?= $getDataBarangById['id']; ?>" id="">
-                                 <button for="bayar" class="btn btn-danger mr-2" name="bayar" value="b">SELESAI</button>
+                                 <button for="selesai" class="btn btn-danger mr-2" name="selesai" value="b">SELESAI</button>
                              </form>
                          <?php else : ?>
 

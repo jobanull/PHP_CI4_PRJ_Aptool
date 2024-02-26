@@ -47,36 +47,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/admin_role_edit.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/submenu_edit.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/menu_edit.js"></script>
-<script src="<?= base_url('assets/'); ?>js/vendor/script-alat-ukur.js"></script>
-
-
-<script>
-    $('.custom-file-input').on('change', function() {
-        let filename = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass("selected").html(filename);
-    });
-    
-    $('.form-check-input').on('click', function() {
-        const menuId = $(this).data('menu');
-        const roleId = $(this).data('role');
-
-
-        $.ajax({
-            url: "<?= base_url('admin/changeaccess'); ?>",
-            type: "post",
-            data: {
-                menuId: menuId,
-                roleId: roleId
-            },
-            success: function() {
-                document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
-            }
-        });
-    });
-</script>
 
 <!-- Script Load Modal -->
 <script>
@@ -92,21 +62,6 @@
             $('#modal_item').modal('hide');
         })
     })
-</script>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("tampilbayar");
-        var y = document.getElementById("bayar");
-        if (y.style.display === "block") {
-            y.style.display = "none";
-        } else {
-            x.style.display = "block";
-            y.style.display = "none";
-        }
-
-
-    }
 </script>
 
 

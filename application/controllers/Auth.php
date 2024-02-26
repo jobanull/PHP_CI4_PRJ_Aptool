@@ -29,7 +29,6 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
         } else {
-
             $this->_login();
         }
     }
