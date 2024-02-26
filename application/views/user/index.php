@@ -21,7 +21,12 @@
                 </div>
             </div>
         </div>
+       
+            <a href="<?= base_url('user/edit'); ?>"  class="btn btn-success mb-3">Edit</a>
+            <a href="<?= base_url('user/changePassword'); ?>" class="btn btn-warning mb-3">Change Password</a>
+       
     </div>
+    
 
 </div>
 <!-- /.container-fluid -->
