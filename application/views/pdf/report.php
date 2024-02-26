@@ -98,8 +98,6 @@
 
     <br><br><br> <br><br><br> <br><br><br> <br><br><br>
     <img style="width: 115%; height: 100%;" src="<?= base_url('assets/'); ?>img/report_logo.png" alt="">
-    <h2 style="text-align:center;">DAFTAR INDUK ALAT UKUR</h2>
-    <div style="height: 10px;"></div>
 
     <h2 style="text-align:center;">DAFTAR INDUK ALAT BANTU</h2>
     <div style="height: 10px;"></div>

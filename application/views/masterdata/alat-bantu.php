@@ -101,7 +101,7 @@
                            </div>
                            <div class="form-group">
                                <label for="spesifikasi">Spesifikasi</label>
-                               <input type="number" class="form-control" value="Rp." id="spesifikasi" name="spesifikasi">
+                               <input type="text" class="form-control" id="spesifikasi" name="spesifikasi">
                                <?= form_error('spesifikasi', ' <small class="text-danger">', '</small>'); ?>
                            </div>
                            <div class="form-group">
