@@ -13,17 +13,9 @@ class MasterData extends CI_Controller
 
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->model('Menu_Model');
         $this->load->model('Md_Alat_Ukur_Model');
         $this->load->model('Md_Alat_Bantu_Model');
     }
-
-    public function index()
-    {
-
-        echo "hello world";
-    }
-
     
     // -----------------------------------------------------------------------------------------
 

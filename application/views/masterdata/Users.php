@@ -37,15 +37,7 @@
                                        <td><?= $no++; ?></td>
                                        <td><?= $row['name']; ?></td>
                                        <td><?= $row['email']; ?></td>
-                                       <td>
-                                        <?php if( $row['role_id'] == 1): ?>
-                                           Admin
-                                        <?php elseif($row['role_id'] == 2):?>
-                                            Member
-                                        <?php else: ?>
-                                            User
-                                           <?php endif; ?>       
-                                        </td>
+                                       <td>User</td>
                                    </tr>
                                <?php endforeach; ?>
                            </tbody>
